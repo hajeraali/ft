@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time to get fit!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/animate.css">
+   
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+   <link rel="stylesheet" herf=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <!-- Add custom CSS to change the navbar color --><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+  <style>
+    .navbar.bg-body-tertiary {
+      background-color: #FFE4D6 !important; /* Change this to your desired grey color */
+    }
+  </style>
+</head>
+<body>
+ 
+  
+
+    <section id="header">
+      
+
+    <nav class="navbar  bg-body-tertiary" id="sticky-navbar">
+        <div class="container-fluid">
+        
+          <a class="navbar-brand" href="#"><img src="images/dumbell.png" class="logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#header">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+              </li>
+              
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Workout plans
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#section">HIIT</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#section">WEIGHT LIFTING</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#section">YOGA & PILATES</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Features
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Reviews</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Contact us</a>
+              </li>
+              <li><a class="nav-link active" href="register.html">Register/ Login</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+       
+      </nav>
+      <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  
+      <div class="content">
+        <h1>EAT, TRAIN, ELEVATE</h1><br>
+        <a href="#bmi"> <button type="button" class=button >Explore </button></a>
+
+      </div>
+    
+     
+      </section>
+     
+      <section id="bmi">
+        <div class="container"  data-aos="slide-right">
+          <div class="bmi text-center wowfadeInUp ">
+            <h1 class="h-primary">CALCULATE <h1 class="h-tertiary">YOUR BMI <3</h1></h1>
+          <div class="input">
+            <label for="height"><p>Height (cm):</p></label><br>
+            <input type="text" id="height" placeholder="Height in cm">
+          </div>
+          <div class="input">
+           <label for="weight"><p>Weight (kg):</p><label>
+            <input type="text" id="weight" placeholder="Weight in kg">
+          </div>
+          <button type="submit" class="calculate">Check BMI</button>
+          <div class="result"></div>
+          <div class="bmi-status">
+          </div>
+        </div>
+      
+      </div>
+    
+      <script>
+        // select the calculate button
+        var calculate = document.querySelector('.calculate');
+    
+        // attach event listener to the button
+        calculate.addEventListener('click', findBMI);
+    
+        // function to find the BMI
+        function findBMI() {
+          var height = +document.querySelector('#height').value;
+          var weight = +document.querySelector('#weight').value;
+          // check height & weight are a valid number
+          if (height <= 0 || weight <= 0 || isNaN(height) || isNaN(weight)) {
+            alert('Please fill all fields with valid numbers');
+            return;
+          }
+          // convert height to meters
+          height = height / 100;
+          var bmi = weight / (height * height);
+          showResult(bmi);
+        }
+    
+        // function to show the result
+        function showResult(bmi) {
+          var result = document.querySelector('.result');
+          var bmiStatus;
+          if (bmi < 18.5) {
+            bmiStatus = 'Underweight';
+          } else if (bmi < 25) {
+            bmiStatus = 'Normal';
+          } else if (bmi < 30) {
+            bmiStatus = 'Overweight';
+          } else {
+            bmiStatus = 'Obese';
+          }
+          result.innerHTML = `<div class=${bmiStatus}>Your BMI is ${bmi.toFixed(2)} and you are ${bmiStatus}.</div>`;
+        }
+      </script> 
+
+
+
+
+
+          </div>
+        </div>
+
+
+      </section>
+      <section id="section"> 
+      
+
+        <div id="headings">
+        <p class="sectionTag">Workout Plans</p>
+        <div class="paras">
+          </div>
+          
+      
+        <p class="sectionTag" data-aos="fade-right">HIIT ・❥・</p>
+          <p class="sectionSubTag">High-intensity interval training (HIIT) is a method of exercising that involves short, fast bursts of exercise interspersed with periods of rest. It has been praised for its numerous health benefits and it can help you to get in shape quickly.<br>
+            1. It improves your stamina<br>2. It increases your strength<br>3. You’ll burns lots of fat<br>4. It keeps your heart healthy<br>5. It can help regulate your blood sugar levels <br> 6. It can help to strengthen your bones<br>7.Eases muscle stiffness
+          </p>
+            <div class="paras">
+              <button class="buttonn"> Begin</button>
+              </div></div>
+            <div class="thumbnail">
+          <img src="images/pexels-cleiton-silva-10606344.jpg" alt="HIIT" class="imgfluid">
+        </div>
+          </section>
+          
+  
+  
+          <section class="section section-left">
+            <div class="paras">
+              
+          
+            <p class="sectionTag" data-aos="fade-left">WEIGHT LIFTING ・❥・</p>
+              <p class="sectionSubTag">Strength training is also known as weight training, resistance training, and muscular training.
+  
+                The general definition of strength training is any physical movement in which you use your body weight or equipment to build muscle mass, strength, and endurance .
+                
+                Depending on the type of strength training you choose to reach your goals, you can use various equipment (or none at all), such as<br>
+                1.Body weight: using your own body weight and the force of gravity to perform various movements (e.g., pushups, squats, planks, pullups, and lunges)<br>2.Free weights: equipment not bound to the floor or a machine, such as dumbbells, barbells, kettlebells, medicine balls, or objects around the house<br>3.Resistance bands/loop bands: rubber bands that provide resistance when stretched<br>4. Weight machines: machines with adjustable weights or hydraulics attached to provide resistance and stress to the muscles</p>
+                <div class="paras">
+                  <button class="buttonn"> Begin</button> <br> <br> <br> <br> 
+                  </div></div>
+                <div class="thumbnail">
+              <img src="images/pexels-yonatan-gonzalez-9069451.jpg" alt="HIIT" class="imgfluid">
+            </div>
+              </section>
+  
+              <section id="section">
+                <div class="paras">
+                  
+               
+                <p class="sectionTag" data-aos="fade-right">YOGA AND PILATES ・❥・</p>
+                  <p class="sectionSubTag"> Both Pilates and yoga are low-impact exercises, but there is one important difference. When practicing yoga, you typically adopt a position and hold it, or flow into a different position. In Pilates, you adopt a position and then challenge your core by moving your arms or legs. Both improve increase strength and flexibility.
+                   <br> Yoga is an ancient spiritual practice rooted in India. As a fitness strategy, it blends physical poses (asanas) with breathing techniques(pranayama). Because it has some elements of mindfulness, yoga is sometimes called meditative movement. <br> Benefits include: <br>
+                    1. Increase core strength to improve stability<br>2. Improve posture<br>3. Increase flexibility<br>4.  Ease lower back painy<br>5. studies have shown that Pilates may help with weight control.</p>
+                    <div class="paras">
+                      <button class="buttonn"> Begin</button>
+                      </div>
+                  </div>
+                  
+                    <div class="thumbnail">
+                      
+                  <img src="images/pexels-koolshooters-7346634.jpg" alt="HIIT" class="imgfluid">
+                 
+                </div>
+                
+              
+                  </section>
+      
+<section class="nutrition-container"> 
+  <div id="food">
+ <br>
+ <br>
+ <h1 class="pri "> Who says healthy food isn't tasty?<br>
+  
+    Check out our low calorie alternatives :)
+
+ </h1>
+  
+  <div id= nutrition>
+    
+    
+    <div class="box"  data-aos="flip-down" >
+      <img src="images/pexels-antoni-shkraba-4753650.jpg" alt="cake">
+      <h2 class="h-sec" > BREAKFAST ღ</h2>
+      <p class="nut">
+        Start the day mindfully wirh a breakfast that fuels both body and mind.<br>
+        <button type="button" class="recipe">Recipe</button></p>
+      </div>
+      <div class="box" data-aos="flip-down">
+        <img src="images/pexels-jane-doan-936611.jpg" alt="cake">
+        <h2 class="h-sec "> LUNCH ღ</h2>
+        <p class="nut">
+          A colorful medley of flavors and nutrients in every bite.<br>
+          <button type="button" class="recipe">Recipe</button></p>
+        </div>
+        <div class="box" data-aos="flip-down" >
+          <img src="images/pexels-valeria-boltneva-1833336.jpg" alt="cake">
+          <h2 class="h-sec "> DINNER ღ</h2>
+          <p class="nut">
+            You don't have to eat less, you just have to eat right.<br>
+            <button type="button" class="recipe">Recipe</button></p>
+          
+          </div>
+
+
+    </div>
+  </div>
+
+      
+
+
+</section>
+
+  <section id="shopping">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6  ">
+        
+          <img src="images/treadmill.png">
+          
+          <h4 data-aos="zoom-out-left">Fitness wear ╰┈➤</h4>
+          <p>Comfort is of upmost importance when you push yourself upto your limit at the gym.<br>
+          Worry not! <br> We bring to you fitness wear of premium quality to make you feel confident and motivated.</p>
+           <button type="button" class="shop" >Shop</button>
+        </div>
+        <div class="col-md-6">
+          <img src="images/weight.png">
+          <h4 data-aos="zoom-out-left" >Workout equipment ╰┈➤</h4>
+          <p>To ensure maximum achievements its always necessary to pair your workout sessions with the right equipments<br>
+          Stress not! <br> We bring to you workout equipments of premium quality to make you make sure you reap all the benefits of your hardwork.</p>
+          <button type="button" class="shop">Shop</button>
+        </div>
+      </div>
+    </div>
+  </section>
+   <section id="testimonials">
+    <div class="container">
+      <h1 class="text-center">Meet our users</h1>
+      <p class="text-center">Read our reviews to be better informed about the website!</p>
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up-right">
+          <p class="review"> Rating: 5/5<br>
+
+            I can't say enough good things about this workout website! The variety of workout plans is incredible, and it's perfect for people of all fitness levels. The videos and instructions are clear and easy to follow. I've seen amazing results since I started using it.
+          <br> &nbsp;
+          <i class="fa-brands fa-twitter"></i><span> GymRat87</span>
+
+          </p>
+          <img src="images/user1.jpg">
+
+        </div>
+        <div class="col-md-4 middle" data-aos="fade-up">
+          <p class="review"> Rating: 4/5<br>
+
+            As a beginner to the fitness world, I found this website to be a lifesaver. The beginner-friendly workout routines helped me ease into a healthier lifestyle. I appreciate the nutrition tips too!
+          <br> &nbsp;
+          <i class="fa-brands fa-twitter"></i><span> GymRat87</span>
+
+          </p>
+          <img src="images/user2.jpg">
+
+        </div><div class="col-md-4"  data-aos="fade-up-left">
+          <p class="review"> Rating: 4.5/5<br>
+
+            This website has a great selection of yoga and Pilates workouts. The instructors are excellent, and I love the mindfulness content as well. My only suggestion would be to add more live streaming yoga sessions for that real studio experience.
+          <br> &nbsp;
+          <i class="fa-brands fa-twitter"></i><span> GymRat87</span>
+
+          </p>
+          <img src="images/user3.jpg">
+
+        </div>
+      </div>
+    </div>
+    <script src="js/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
+  </section>
+  <section id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          
+          
+        
+  
+    </div>
+   
+      <div class="col-md-6">
+        <div class="feature-box">
+          <div class="feature-left"></div>
+          <i class="fa fa-trophy"></i>
+          <div class="feature-right"></div>
+          <h4>Tips to maintain weight </h4>
+          <p>Once you have reached your goal its necessary to maintain your success. So here are some tips to help you do so.</p>
+          <a href="maintainweight.html">
+          <button type="button" class="shop">
+           Read 
+          </button>
+          </a>
+        </div>
+        <div class="feature-box">
+          <div class="feature-left"></div>
+          <i class="fa fa-heartbeat"></i>
+          <div class="feature-right"></div>
+          <h4>Learn to push yourself the right amount </h4>
+          <p>Its best to always know your limits and be cautious of not over exterting yourself which can lead to injury..</p>
+          <a href="pushlimit.html">
+          <button type="button" class="shop">
+            Read
+          </button>
+        </a><br>
+        </div>
+        <div class="feature-box">
+          <div class="feature-left"></div>
+          <i class="fa-solid fa-dumbbell"></i>
+          <div class="feature-right"></div>
+          <h4>Always stay motivated </h4>
+          <p>Its normal to procrasinate and wish to skip a workout. Here are spme tips to help you get out of the bed and into the gym every morning.</p>
+         <a href="staymotivated.html">
+          <button type="button" class="shop">
+            Read
+          </button>
+        </a>
+        </div>
+      </div>
+
+  </section>
+ 
+  <section class="contact">
+    <div class="content">
+      <h2>Contact us</h2>
+      <p>
+        We are always available to help you out with your queries and worries!
+      </p>
+    </div>
+    <div class="containerr">
+      <div class="contactInfo">
+        <div class="box">
+          <div class="icon"><i class="fa-solid fa-map-pin"></i></div>
+          <div class="text">
+            <h3>Address</h3>
+            <p>New Link Road,<br>Mumbai 400068<br>India</p>
+       
+
+          </div>
+        </div>
+        <div class="box">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="text">
+            <h3>Phone</h3>
+            <p>9372539168</p>
+
+          </div>
+        </div>
+        <div class="box" >
+          <div class="icon" ><i class="fa-solid fa-envelope" ></i></div>
+          <div class="text">
+            <h3>Email</h3>
+            <p>fitlife360@gmail.com</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="contactForm" data-aos="zoom-in-up">
+        <form>
+          <h2>Send message</h2>
+          <div class="inputBox">
+            <input type="text" name="" required="required">
+            <span>Full name</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="" required="required">
+            <span>Email</span>
+            <div class="inputBox">
+              <textarea required="required"></textarea>
+              <span>Type your message...</span>
+            </div>
+            <div class="inputBox">
+              <input type="submit" name="" value="Send">
+             
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <section id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="images/dumbell.png" class="footer-logo">
+          <h1>About Us:</h1>
+            <p>- Our Mission: Helping you achieve your fitness goals.<br>
+            - Meet Our Trainers: Learn about our experienced fitness experts. </p>
+
+
+        </div>
+        <div class="col-md-3">
+         <h1>Features</h1>
+         <p>Certified trainers</p>
+         <p>Free workout plans</p>
+         <p>Nutrional low calorie food alternatives</p>
+         <p>Testimonials</p>
+         <p>Tips </p>
+
+        </div>
+        <div class="col-md-3">
+          <h1>Quick Contact</h1>
+          <p><i class="fa fa-phone-square"></i> 9372539168</p>
+          <p><i class="fa fa-envelope"></i> fitlife360@gmail.com</p>
+          <p><i class="fa fa-home"></i> <p>New Link Road,Mumbai,India</p>
+        
+          
+         </div>
+         <div class="col-md-3">
+          <h1>Follow us on</h1>
+          <p><i class="fa-brands fa-square-instagram"></i>@fitlife360</p>
+       
+          
+          
+         </div>
+       
+      </div>
+      <hr><p class="copyright">Made with &nbsp; &nbsp;<i class="fa fa-heart-o"></i>by fitlife360</p>
+    </div>
+
+  </section>
+  <script src="js/smooth-scroll.js"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+  <!--animate-->
+
+  
+  <script src="js/wow.min.js"></script>
+  <script>
+  new WOW().init();
+  </script>
+  <script>
+    wow = new WOW(
+        {
+            animateClass: 'animate__animated' //updated default animate 4.+
+        }
+    )
+    wow.init();
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+
+   offset : 300, duration: 1000});
+</script>
+
+
+</body>
+</html> 
