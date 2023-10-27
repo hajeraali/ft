@@ -659,9 +659,9 @@ nav ul li {
 }
 
 .product {
-    background-color: #fff;
+    background-color:#B0A4A4;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
+    margin: 50px;
     padding: 20px;
     text-align: center;
     border-radius: 5px;
@@ -676,18 +676,21 @@ nav ul li {
 }
 
 .product h2 {
+    color:#643A6B;
     font-size: 1.5em;
     margin: 10px 0;
+    font-weight: 600;
+    
 }
 
 .price {
-    font-weight: bold;
-    color: #007bff;
+    font-weight: 900;
+    color: #643A6B;
     font-size: 1.2em;
 }
 
 .add-to-cart {
-    background-color: #007bff;
+    background-color: #643A6B;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -698,7 +701,7 @@ nav ul li {
 }
 
 .add-to-cart:hover {
-    background-color: #0056b3;
+    background-color:#957777;
 }
 
 .product-details {
