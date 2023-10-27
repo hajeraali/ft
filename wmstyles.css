@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('./bgre4.jpg') no-repeat right center fixed;
+    background-size: cover;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.left-tips {
+    width: 88%;
+    align-items: flex-end;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.tip {
+    margin: 30px;
+    padding: 30px;
+    background: #5d535335;
+    border-radius: 50px;
+    transition: background 0.3s;
+}
+
+.tip:hover {
+    background: linear-gradient(135deg, #d69a9a90, #3a4d87c5);
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    
+}
+
+h5 {
+    text-align: center; /* Center align text */
+    font-family: "Arial", sans-serif; /* Choose a professional font-family */
+    font-size: 14px; /* Adjust the font size as needed */
+    color: #151414; /* Set text color to a professional color */
+    margin: 0; /* Remove any default margin */
+    padding: 10px 0; /* Add padding for spacing */
+    margin: 20px;
+    padding: 30px;
+    background: #d69a9a5c;
+    border-radius: 50px;
+}
+

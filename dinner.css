@@ -1,0 +1,126 @@
+
+.navbar {
+    background-color: #595656e8; /* Background color of the navbar */
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    background-color: #fffaef;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #532812d6;
+    background: url('./brown1.jpg') ;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 28px;
+    color: rgb(63, 40, 12);
+}
+
+h2 {
+    font-size: 22px;
+    color:rgb(33, 21, 6)
+}
+.recipe {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+   /* background-color: #fff;*/
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.recipe img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ingredients, .instructions {
+    flex: 1;
+    padding: 20px;
+}
+
+ul, ol {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.ingredients h2, .instructions h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/*
+.ingredients-container {
+    display:block;
+  }*/
+  
+  .ingredient {
+    width: 150px; 
+    height: auto; 
+    margin-right: 10px; 
+  }
+
+  img {
+    display: block; 
+    margin: 0 auto;
+  }
+ 
