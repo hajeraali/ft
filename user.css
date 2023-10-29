@@ -1,0 +1,343 @@
+#main{
+   padding-top: 10px; 
+    position: relative;
+    margin: 20px;
+}
+.dropdown-menu .dropdown-item {
+    border: none;
+}
+.navbar.bg-body-tertiary {
+    background-color: rgb(229, 222, 222) !important;
+}
+
+form {
+    padding:5%;
+    display: block;
+    margin-top: 0em;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #C27BA0;
+    border-color: antiquewhite;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+body{
+    margin-top:20px;
+    background-color:#fffcf5;
+    color:#69707a;
+    }
+    .img-account-profile {
+        height: 10rem;
+    }
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+    .card {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+       
+    }
+    .card .card-header {
+        font-weight: 500;
+        height: auto;
+    }
+    .card-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+    .card-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+    .form-control, .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 1.125rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        height: auto;
+    }
+    
+    .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navi .body {
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            margin: 0;
+          }
+        
+         .navi .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+          }
+          .navi .line {
+            fill: none;
+            stroke: black;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .navi .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .navi .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+          }
+          .navi .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+          }
+          .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          
+              .navi .menu-container {
+                  position: relative;
+              }
+          
+              .navi .nav-links {
+                background-color: rgb(229, 222, 222) !important;
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  background-color: #fff;
+                  border: 1px solid #ccc;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              }
+          
+              .navi .nav-links a {
+                  display: block;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  color: #333;
+              }
+          
+             .navi .menu-container.opened .nav-links {
+                  display: block;
+                 
+          }
+          
+          .navi .menu-container {
+   
+              position: fixed; /* Fixed position to keep it at the top left */
+              top: 0; /* Position at the top of the viewport */
+              left: 25px; /* Position at the left of the viewport */
+              z-index: 1000; /* Ensure it's above other content */
+              padding: 10px; /* Add some padding for spacing */
+          }
+          
+          .navi .menu {
+           
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding-bottom: 10px;
+          }
+          
+          /* Adjust the width and height of the SVG icon as needed */
+          .navi .menu svg {
+            width: 40px; /* Reduce the width */
+            height: auto; /* Allow the height to adjust proportionally */
+          } 
+          .user-profile-icon {
+            position: fixed;
+            top: 2%; /* Adjust the top value as needed */
+            right: 2%; /* Adjust the right value as needed */
+            width: 10%;
+            max-width: 50px;
+            height: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1; /* Ensure it's in front of other elements */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+          .user-profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            z-index: 999; /* Ensure it's in front of the user-profile icon */
+          }
+          
+          .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          .dropdown-menu li {
+            padding: 10px 20px;
+            text-align: center;
+          }
+          /* Add this to your user.css file */
+
+        /* Display the dropdown on hover */
+        .user-profile-icon:hover .dropdown-menu {
+          display: block;
+        }
+
+        /* Popup styles */
+        .popup {
+          display: flexbox;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 999; /* Ensure the pop-up is above other content */
+        }
+
+        .popup-content {
+          display: inline-flex;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          text-align: center;
+        }
+
+        /* Popup styles */
+        .popup {
+          display: flex;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 999; /* Ensure the pop-up is above other content */
+        }
+
+        .popup-content {
+          display: inline-flex;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          text-align: center;
+        }
+
+        /* Style for the image options in a grid layout using CSS Grid */
+        .modal-body .row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+          gap: 10px;
+          margin-bottom: 10px;
+        }
+
+        /* Style for each image option */
+        .image-option {
+          text-align: center;
+        }
+
+        .image-option img {
+          max-width: 100%;
+          display: block;
+        }
+
+        /* Style for the "Save Changes" button */
+        #saveChangesButton {
+          margin-top: 20px;
+        }
+
+        .modal-body {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto; /* Enable horizontal scrolling if needed */
+        }
+
+        #profileDropdown {
+          display: none;
+          position: absolute;
+          top: 40px; /* Adjust the position as needed */
+          right: 0;
+          background: white;
+          border: 1px solid #ccc;
+          z-index: 999;
+          min-width: 150px;
+          padding: 10px;
+        }
+        
+        #profileDropdown ul {
+          list-style: none;
+          padding: 0;
+        }
+        
+        #profileDropdown ul li {
+          margin: 5px 0;
+        }
+        
+        #profileDropdown ul li a {
+          text-decoration: none;
+          color: #333;
+          display: block;
+        }
+        
+        .g-3, .gx-3 {
+          margin-top: 1rem;
+          --bs-gutter-x: 1rem;
+      }

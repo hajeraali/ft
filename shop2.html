@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/animate.css">
-   
     <link href="css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,81 +19,250 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <!-- Add custom CSS to change the navbar color --><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-  <style>
-    .navbar.bg-body-tertiary {
-      background-color: #B0A4A4 !important; /* Change this to your desired grey color */
+    <style>
+      .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
     }
-  </style>
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 
-    
+    .navi .body {
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            margin: 0;
+          }
+        
+         .navi .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+          }
+          .navi .line {
+            fill: none;
+            stroke: black;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .navi .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .navi .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+          }
+          .navi .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+          }
+          .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          
+              .navi .menu-container {
+                  position: relative;
+              }
+          
+              .navi .nav-links {
+                background-color: rgb(229, 222, 222) !important;
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  background-color: #fff;
+                  border: 1px solid #ccc;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              }
+          
+              .navi .nav-links a {
+                  display: block;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  color: #333;
+              }
+          
+             .navi .menu-container.opened .nav-links {
+                  display: block;
+                 
+          }
+          
+          .navi .menu-container {
+   
+              position: fixed; /* Fixed position to keep it at the top left */
+              top: 0; /* Position at the top of the viewport */
+              left: 25px; /* Position at the left of the viewport */
+              z-index: 1000; /* Ensure it's above other content */
+              padding: 10px; /* Add some padding for spacing */
+          }
+          
+          .navi .menu {
+           
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding-bottom: 10px;
+          }
+          
+          /* Adjust the width and height of the SVG icon as needed */
+          .navi .menu svg {
+            width: 40px; /* Reduce the width */
+            height: auto; /* Allow the height to adjust proportionally */
+          } 
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            z-index: 999; /* Ensure it's in front of the user-profile icon */
+          }
+
+          .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          .dropdown-menu li {
+            padding: 10px 20px;
+            text-align: center;
+          }
+
+  </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <section id="headerr">
-      
+  <section class="navi">
+    <div class="menu-container">
+        <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+            <svg width="50" height="auto" viewBox="0 0 100 100">
+                <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                <path class="line line2" d="M 20,50 H 80" />
+                <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            </svg>
+        </button>
 
-    <nav class="navbar  bg-body-tertiary" id="sticky-navbar">
-        <div class="container-fluid">
-        
-          <a class="navbar-brand" href="#"><img src="images/dumbell.png" class="logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navigation Links Container -->
+        <div id="navLinks" class="nav-links">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#header">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
-              </li>
-              
-             
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Workout plans
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#section">HIIT</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#section">WEIGHT LIFTING</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#section">YOGA & PILATES</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Features
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#food">Nutrition</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Reviews</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#shopping">Online store</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Contact us</a>
-              </li>
-              <li><a class="nav-link active" href="register.html">Register/ Login</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                </li>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping"></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                </li>
+               
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Workout Plans
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping">Yoga&Pilaties</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Features
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Reviews</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+              </ul>
         </div>
-       
-      </nav>
-      
-    
-     
-      </section>
+  </div>
+</section>
+<script type="text/javascript">
+  function toggleMenu() {
+      var menuContainer = document.querySelector('.menu-container');
+      menuContainer.classList.toggle('opened');
+  }
 
+  function toggleDropdown() {
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close the dropdown when clicking outside of it
+window.addEventListener('click', function (event) {
+    if (!event.target.closest('.user-profile-icon')) {
+        var dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.style.display = 'none';
+    }
+});  
+const uploadButton = document.getElementById("uploadButton");
+const imagePopup = document.getElementById("imagePopup");
+const saveButton = document.getElementById("saveButton");
+
+uploadButton.addEventListener("click", () => {
+    imagePopup.style.display = "block";
+});
+
+saveButton.addEventListener("click", () => {
+    // Implement code to save the selected image and hide the pop-up
+    imagePopup.style.display = "none";
+});
+
+</script>
     <section class="product-list">
         <div class="product">
-            <img src="D2.PNG" alt="Product 1">
+            <img src="images/D2.PNG" alt="Product 1">
             <h2>Wolpin Anti-Slip Yoga Mat Exercise Mat
             </h2>
             <p class="price">Rs. 690</p>
@@ -107,7 +274,7 @@
             </div>
         </div>
         <div class="product">
-            <img src="d.PNG" alt="Product 2">
+            <img src="images/d.PNG" alt="Product 2">
             <h2>Dumbbells Weights for Whole Body Workout</h2>
             <p class="price">Rs. 190</p>
             <a href="https://www.amazon.in/dp/B0C3BDPDPS/ref=sbl_dpx_in-sports-exercise-dumbbells_B07B91CQH6_0">
@@ -122,7 +289,7 @@
             </div>
         </div>
         <div class="product">
-        <img src="d3.PNG" alt="Product 3">
+        <img src="images/d3.PNG" alt="Product 3">
         <h2>      Symactive Neoprene Coated Kettlebell 
         </h2>
         <p class="price">Rs.590</p>
@@ -135,7 +302,7 @@
     </div>
 
  <div class="product">
-            <img src="d4.PNG" alt="Product 2">
+            <img src="images/d4.PNG" alt="Product 2">
             <h2> Adjustable Incline Multipurpose Gym Bench
             </h2>
             <p class="price">Rs. 3299</p>

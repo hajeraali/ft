@@ -5,68 +5,306 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pl.css">
     <title>Weight Maintenance Tips</title>
+    <style>
+        .nav-borders .nav-link.active {
+          color: #0061f2;
+          border-bottom-color: #0061f2;
+      }
+      .nav-borders .nav-link {
+          color: #69707a;
+          border-bottom-width: 0.125rem;
+          border-bottom-style: solid;
+          border-bottom-color: transparent;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 1rem;
+          margin-right: 1rem;
+      }
+  
+      .navi .body {
+              position: relative;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              height: auto;
+              margin: 0;
+            }
+          
+           .navi .menu {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding: 0;
+            }
+            .navi .line {
+              fill: none;
+              stroke: black;
+              stroke-width: 6;
+              transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .navi .line1 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .navi .line2 {
+              stroke-dasharray: 60 60;
+              stroke-width: 6;
+            }
+            .navi .line3 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .opened .line1 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            .opened .line2 {
+              stroke-dasharray: 1 60;
+              stroke-dashoffset: -30;
+              stroke-width: 6;
+            }
+            .opened .line3 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            
+                .navi .menu-container {
+                    position: relative;
+                }
+            
+                .navi .nav-links {
+                  background-color: rgb(229, 222, 222) !important;
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            
+                .navi .nav-links a {
+                    display: block;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: #333;
+                }
+            
+               .navi .menu-container.opened .nav-links {
+                    display: block;
+                   
+            }
+            
+            .navi .menu-container {
+     
+                position: fixed; /* Fixed position to keep it at the top left */
+                top: 0; /* Position at the top of the viewport */
+                left: 25px; /* Position at the left of the viewport */
+                z-index: 1000; /* Ensure it's above other content */
+                padding: 10px; /* Add some padding for spacing */
+            }
+            
+            .navi .menu {
+             
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                padding-bottom: 10px;
+            }
+            
+            /* Adjust the width and height of the SVG icon as needed */
+            .navi .menu svg {
+              width: 40px; /* Reduce the width */
+              height: auto; /* Allow the height to adjust proportionally */
+            } 
+            .dropdown-menu {
+              display: none;
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background-color: #fff;
+              border: 1px solid #ccc;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              font-family: Arial, sans-serif;
+              font-size: 16px;
+              z-index: 999; /* Ensure it's in front of the user-profile icon */
+            }
+
+            .dropdown-menu ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            .dropdown-menu li {
+              padding: 10px 20px;
+              text-align: center;
+            }
+
+    </style>
 </head>
 <body>
+    <section class="navi">
+        <div class="menu-container">
+            <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+                <svg width="50" height="auto" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+    
+            <!-- Navigation Links Container -->
+            <div id="navLinks" class="nav-links">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                    </li>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping"></a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Workout Plans
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping">Yoga&Pilaties</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Features
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Reviews</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                    <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                    <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                  </ul>
+            </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      function toggleMenu() {
+          var menuContainer = document.querySelector('.menu-container');
+          menuContainer.classList.toggle('opened');
+      }
+  
+      function toggleDropdown() {
+        var dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    // Close the dropdown when clicking outside of it
+    window.addEventListener('click', function (event) {
+        if (!event.target.closest('.user-profile-icon')) {
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.style.display = 'none';
+        }
+    });  
+    const uploadButton = document.getElementById("uploadButton");
+    const imagePopup = document.getElementById("imagePopup");
+    const saveButton = document.getElementById("saveButton");
+    
+    uploadButton.addEventListener("click", () => {
+        imagePopup.style.display = "block";
+    });
+  
+    saveButton.addEventListener("click", () => {
+        // Implement code to save the selected image and hide the pop-up
+        imagePopup.style.display = "none";
+    });
+    
+  </script>
     <br><br>
     <h2>Learn to push yourself the right amount</h2>
     <h5>The key is to find a balance that allows you to challenge yourself and make progress without risking injury or burnout.<br>Remember that everyone's limits are different, and what's right for one person may not be right for another.<br> Listen to your body and adapt your approach as needed.</h5>
     <div class="container">
         <div class="tip left">
-            <img src="pl2.jpg" alt="Your Image">
+            <img src="images/pl2.jpg" alt="Your Image">
             <p><b>Proper Technique: </b><br><br>Learn the correct technique for any exercise you do. Proper form not only maximizes benefits but also minimizes the risk of injury. </p>
         </div>
         <div class="tip right">
             <p><b>Consult a Professional:</b><br><br> If you're unsure about your limits or how to exercise safely, consider consulting a fitness trainer, physical therapist, or healthcare professional.</p>
-            <img src="pl3.png" alt="Your Image">
+            <img src="images/pl3.png" alt="Your Image">
         </div>
         <div class="tip left">
-            <img src="pl4.png" alt="Your Image">
+            <img src="images/pl4.png" alt="Your Image">
             <p><b>Stay Hydrated and Nourished:</b><br><br>Proper hydration and nutrition are key for energy and recovery. Dehydration and nutrient deficiencies can lead to fatigue and increased risk of injury. </p>
         </div>
         <div class="tip right">
             <p><b>Set Realistic Expectations:</b><br><br>Understand that progress takes time. Be patient and avoid comparing yourself to others. Your journey is unique. </p>
-            <img src="pl5.png" alt="Your Image">
+            <img src="images/pl5.png" alt="Your Image">
         </div>
         <div class="tip left">
-            <img src="pl6.png" alt="Your Image">
+            <img src="images/pl6.png" alt="Your Image">
             <p><b>Know Your Limits:</b><br><br> Understanding your physical and mental limits is crucial.</p>
         </div>
         <div class="tip right">
             <p><b>Set Realistic Goals:</b><br><br> When working towards a goal, set achievable and realistic milestones.</p>
-            <img src="pl7.png" alt="Your Image">
+            <img src="images/pl7.png" alt="Your Image">
         </div>
         <div class="tip left">
-            <img src="pl8.png" alt="Your Image">
+            <img src="images/pl8.png" alt="Your Image">
             <p><b>Listen to Your Body:</b><br><br>Pay attention to your body's signals.</p>
         </div>
         <div class="tip right">
             <p><b>Rest and Recovery:</b><br><br>Give your body time to recover.</p>
-            <img src="pl9.png" alt="Your Image">
+            <img src="images/pl9.png" alt="Your Image">
         </div>
         <div class="tip left">
-            <img src="pl10.png" alt="Your Image">
+            <img src="images/pl10.png" alt="Your Image">
             <p><b>Cross-Train:</b><br><br>Mix up your exercise routine. Engaging in a variety of activities can reduce the risk of overuse injuries and keep things interesting. </p>
         </div>
         <div class="tip right">
             <p><b>Warm-Up and Cool Down:</b><br><br>Always warm up before intense exercise and cool down afterward. This helps prevent muscle strains and injuries. </p>
-            <img src="pl11.png" alt="Your Image">
+            <img src="images/pl11.png" alt="Your Image">
         </div>
         
         <div class="tip left">
-            <img src="pl12.png" alt="Your Image">
+            <img src="images/pl12.png" alt="Your Image">
             <p><b>Use Support and Accountability: </b><br><br>Joining a fitness class or finding a workout partner can help motivate you and ensure you don't push yourself too hard. </p>
         </div>
         <div class="tip right">
             <p><b>Track Your Progress:</b><br><br>Track Your Progress:</p>
-            <img src="pl13.png" alt="Your Image">
+            <img src="images/pl13.png" alt="Your Image">
         </div>
         <div class="tip left">
-            <img src="pl14.png" alt="Your Image">
+            <img src="images/pl14.png" alt="Your Image">
             <p><b>Periodization:</b><br><br>If you're into more advanced training, consider periodization, which involves cycling between intense training and recovery phase </p>
         </div>
         <div class="tip right">
             <p><b>Incorporate Active Rest Days: </b><br><br>On rest days, engage in light activities like walking or stretching to promote recovery without overexertion.</p>
-            <img src="pl15.png" alt="Your Image">
+            <img src="images/pl15.png" alt="Your Image">
         </div>
 </body>
 </html>

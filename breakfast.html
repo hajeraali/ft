@@ -5,49 +5,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="breakfast.css">
     <title>Healthy Breakfast Recipe</title>
+    <style>
+      .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navi .body {
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            margin: 0;
+          }
+        
+         .navi .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+          }
+          .navi .line {
+            fill: none;
+            stroke: black;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .navi .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .navi .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+          }
+          .navi .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+          }
+          .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          
+              .navi .menu-container {
+                  position: relative;
+              }
+          
+              .navi .nav-links {
+                background-color: rgb(229, 222, 222) !important;
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  background-color: #fff;
+                  border: 1px solid #ccc;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              }
+          
+              .navi .nav-links a {
+                  display: block;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  color: #333;
+              }
+          
+             .navi .menu-container.opened .nav-links {
+                  display: block;
+                 
+          }
+          
+          .navi .menu-container {
+   
+              position: fixed; /* Fixed position to keep it at the top left */
+              top: 0; /* Position at the top of the viewport */
+              left: 25px; /* Position at the left of the viewport */
+              z-index: 1000; /* Ensure it's above other content */
+              padding: 10px; /* Add some padding for spacing */
+          }
+          
+          .navi .menu {
+           
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding-bottom: 10px;
+          }
+          
+          /* Adjust the width and height of the SVG icon as needed */
+          .navi .menu svg {
+            width: 40px; /* Reduce the width */
+            height: auto; /* Allow the height to adjust proportionally */
+          } 
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            z-index: 999; /* Ensure it's in front of the user-profile icon */
+          }
+
+          .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          .dropdown-menu li {
+            padding: 10px 20px;
+            text-align: center;
+          }
+
+  </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">BMI</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Workout Plans</a>
-                <div class="dropdown-content">
-                    <a href="#">HIIT</a>
-                    <a href="#">WL (Weight Lifting)</a>
-                    <a href="#">YOGA</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Features</a>
-                <div class="dropdown-content">
-                    <a href="#">Nutrition</a>
-                    <a href="#">Reviews</a>
-                    <a href="#">Online Store</a>
-                </div>
-            </li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
-    
-
-
     <header>
+      <section class="navi">
+        <div class="menu-container">
+            <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+                <svg width="50" height="auto" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+    
+            <!-- Navigation Links Container -->
+            <div id="navLinks" class="nav-links">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                    </li>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping"></a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Workout Plans
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping">Yoga&Pilaties</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Features
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Reviews</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                    <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                    <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                  </ul>
+            </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      function toggleMenu() {
+          var menuContainer = document.querySelector('.menu-container');
+          menuContainer.classList.toggle('opened');
+      }
+  
+      function toggleDropdown() {
+        var dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    // Close the dropdown when clicking outside of it
+    window.addEventListener('click', function (event) {
+        if (!event.target.closest('.user-profile-icon')) {
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.style.display = 'none';
+        }
+    });  
+    const uploadButton = document.getElementById("uploadButton");
+    const imagePopup = document.getElementById("imagePopup");
+    const saveButton = document.getElementById("saveButton");
+    
+    uploadButton.addEventListener("click", () => {
+        imagePopup.style.display = "block";
+    });
+  
+    saveButton.addEventListener("click", () => {
+        // Implement code to save the selected image and hide the pop-up
+        imagePopup.style.display = "none";
+    });
+    
+  </script>
         <h1>Healthy Breakfast Recipe</h1>
         <h2>Greek yogurt and Fruit parfait</h2>
-        <img src="breakfast1.jpg" style="width: 30%; height: auto;">
+        <img src="images/breakfast1.jpg" style="width: 30%; height: auto;">
  
             <div class="ingredients">
                 <h2>Ingredients:</h2>
-                <ul>
-                    <li>1 cup of Greek yogurt (plain, low-fat or non-fat)</li>
-                    <li>1/2 cup of granola (choose a low-sugar option)</li>
-                    <li>1 cup of mixed fresh berries (strawberries, blueberries, raspberries)</li>
-                    <li>1 ripe banana, sliced</li>
-                    <li>1 tablespoon of honey (optional for added sweetness)</li>
-                    <li>1/4 teaspoon of cinnamon (optional for flavor)</li>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li style="list-style-type: disc; padding-left: 20px;">1 cup of Greek yogurt (plain, low-fat or non-fat)</li>
+                    <li style="list-style-type: disc; padding-left: 20px;">1/2 cup of granola (choose a low-sugar option)</li>
+                    <li style="list-style-type: disc; padding-left: 20px;">1 cup of mixed fresh berries (strawberries, blueberries, raspberries)</li>
+                    <li style="list-style-type: disc; padding-left: 20px;">1 ripe banana, sliced</li>
+                    <li style="list-style-type: disc; padding-left: 20px;">1 tablespoon of honey (optional for added sweetness)</li>
+                    <li style="list-style-type: disc; padding-left: 20px;">1/4 teaspoon of cinnamon (optional for flavor)</li>
                 </ul>
             </div>
     </header>
@@ -58,20 +269,20 @@
     <section class="recipe">
         <div class="instructions">
             <h2>Instructions:</h2>
-            <ol>
-                <li><u>Prepare Your Ingredients:</u> Gather all the ingredients and have them ready. You can also customize this recipe by using your favorite fruits and nuts.</li>
-                <li><u>Layer the Yogurt:</u> Start by adding a layer of Greek yogurt to the bottom of a glass or a bowl. You can use a tall glass for a visually appealing parfait.</li>
-                <li><u>Add Granola:</u> Sprinkle a layer of granola on top of the yogurt. Granola adds a nice crunch and additional fiber to the breakfast.</li>
-                <li><u>Add Fruit:</u> Now, add a layer of mixed fresh berries and sliced banana on top of the granola. Berries are rich in antioxidants and vitamins, while the banana provides natural sweetness.</li>
-                <li><u>Repeat the Layers:</u> Repeat the layering process by adding another layer of yogurt, granola, and more fruit until you've used up all your ingredients. You can drizzle honey over the top for extra sweetness if desired.</li>
-                <li><u>Sprinkle with Cinnamon:</u> If you like, sprinkle a pinch of cinnamon over the top for added flavor. Cinnamon also has potential health benefits.</li>
-                <li><u>Serve:</u> Your healthy Greek yogurt and fruit parfait is now ready to be enjoyed. You can serve it immediately or refrigerate it for a cool and refreshing breakfast.</li>
+            <ol style="list-style-type: disc; padding-left: 20px;">
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Prepare Your Ingredients:</u> Gather all the ingredients and have them ready. You can also customize this recipe by using your favorite fruits and nuts.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Layer the Yogurt:</u> Start by adding a layer of Greek yogurt to the bottom of a glass or a bowl. You can use a tall glass for a visually appealing parfait.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Add Granola:</u> Sprinkle a layer of granola on top of the yogurt. Granola adds a nice crunch and additional fiber to the breakfast.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Add Fruit:</u> Now, add a layer of mixed fresh berries and sliced banana on top of the granola. Berries are rich in antioxidants and vitamins, while the banana provides natural sweetness.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Repeat the Layers:</u> Repeat the layering process by adding another layer of yogurt, granola, and more fruit until you've used up all your ingredients. You can drizzle honey over the top for extra sweetness if desired.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Sprinkle with Cinnamon:</u> If you like, sprinkle a pinch of cinnamon over the top for added flavor. Cinnamon also has potential health benefits.</li>
+                <li style="list-style-type: disc; padding-left: 20px;"><u>Serve:</u> Your healthy Greek yogurt and fruit parfait is now ready to be enjoyed. You can serve it immediately or refrigerate it for a cool and refreshing breakfast.</li>
             </ol>
             
             <div class="ingredients-container">
-                <img src="bf1.jpg" class="ingredient">
-                <img src="bf2.jpg" class="ingredient">
-                <img src="bf3.jpeg" class="ingredient">
+                <img src="images/bf1.jpg" class="ingredient">
+                <img src="images/bf2.jpg" class="ingredient">
+                <img src="images/bf3.jpeg" class="ingredient">
             </div>
         </div>
     </section>
