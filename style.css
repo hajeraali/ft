@@ -12,17 +12,15 @@
     background-position: center;
     background-image: url("images/pexels-brandon-morrison-990344.jpg");
     background-attachment: fixed;
-
-
 }
-#sticky-navbar {
+  /* #sticky-navbar {
     position: fixed;
     top: 0;
     width: 100%;
    color: #000;
    
-   /* You can adjust the z-index as needed */
-  }
+ You can adjust the z-index as needed 
+  }  */
 
 .logo{
    
@@ -33,8 +31,8 @@
     text-align:right;
     color:#FFE4D6;
     font-weight: 600;
-    margin-right: 650px;
-    margin-top: 0px;
+    margin-right: 60%;
+    margin-top: 8%;
 }
 .content a{
     text-decoration: none;
@@ -46,15 +44,11 @@
 
 }
 
-  
-
-
 .bmi{
     padding:50px 100px;
     margin-top:-140px;
-    background-color:#FACBEA;
+    background-color: rgba(250, 203, 234,0.8);
     box-shadow: 0 0 20px 7px rgba(0,0,0,0.2);
-
 }
  .calculate{
     margin-top:10px;
@@ -100,7 +94,6 @@ button{
     height:500px;
     display:flex;
     align-items:center;
-   
     justify-content: space-evenly;
     margin:auto;
     max-width: 80%;
@@ -174,15 +167,16 @@ button{
     color:rgb(101, 96, 172);
 }
 #food::before{
+    background-size: cover;
     content:"";
     position:absolute;
-   background-image: url(images/pexels-nicole-avagliano-2236703.jpg);
+   background-image: url('images/pexels-nicole-avagliano-2236703.jpg');
    background-attachment: fixed;
     height: 110%;
     width: 100%;
     z-index: -1;
     opacity: 0.6;
-    margin: 34px;
+    /*margin: 34px;*/
     display: flex;
     border: 2px solid  rgb(21, 63, 52);
     
@@ -191,7 +185,11 @@ button{
 
 
 #nutrition{
-    margin: 34px;
+    align-self: center;
+    padding: 2% 15%;
+    /*padding-left: 10rem;
+    padding-bottom: 3rem;*/
+    border-left: 34px;
     display: flex;
     opacity: 1;
     width: 100%;
@@ -200,23 +198,16 @@ button{
 }
 #nutrition .box{
    border: 2px solid #9D44C0; 
-   padding:34px;
-   
-  
+   padding: 3rem 2rem;
    margin: 3px 6px;
    border-radius: 20px;
-   background-color:#FACBEA;
-  
-
+   background-color:rgba(250, 203, 234,0.6);
 }
  #nutrition .box img{
     height: 210px;
     border:2px solid #9D44C0;
     margin:auto;
     display: block;
-   
-
-    
  }
  #nutrition .box p{
     font-size: 2.3 rem;
@@ -259,13 +250,15 @@ button{
     border-radius: 30px;
 
 }
-#shopping{
-    background-image: url(images/pink.jpg);
+#shopping {
+    background-position: left;
+    background-size: cover;
+    background-image: url('images/shopbg2.jpg');
     background-attachment: fixed;
-    padding-top:80px;
-    padding-bottom:80px;
-    width:1300px;
-    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 100%;
+    height: 110%;
 }
 #shopping .col-md-6{
    padding:20px;
@@ -292,7 +285,6 @@ button{
 }
 .shop{
     padding: 6px 14px;
-
     border: 3px solid palevioletred;
     background-color: #5B0888;
     color:palevioletred;
@@ -308,17 +300,16 @@ button{
     background:url(images/pexels-artem-yellow-15188442.jpg);
     background-position: center;
     background-size: 100%;
-    height: 140vh;
+    /*height: 140vh;*/
     background-attachment: fixed;
-   
     color:#B0578D;
-    
 }
 #features .col-md-6{
     padding:20px;
 }
 #feature-box{
     height:120px;
+
 
 }
 .feature-box .feature-left{
@@ -336,20 +327,17 @@ button{
 }
 .feature-box .feature-right p{
   
- 
-  
  }
  
 
 #testimonials{
     padding-top: 100px;
     padding-bottom: 100px;
-    background-image: url(images/pexels-lev-strelchenko-12455580.jpg);
-    width:1300px;
+    background-image: url('images/pexels-lev-strelchenko-12455580.jpg');
+    width:100%;
     background-attachment: fixed;
-    
- 
-
+    background-size: cover;
+    background-position: right;
 }
 #testimonials .col-md-4{
     padding: 10px 30px;
@@ -403,17 +391,14 @@ button{
  }
  .contact{
      position:static;
-    
      padding:50px 100px;
      display:flex;
      justify-content:center;
      align-items:center;
      flex-direction:column ;
      background-image: url(images/pexels-karolina-grabowska-4397833.jpg);
-     background-size:cover;
-   
-
-
+     background-size: cover;
+     background-position: right;
  }
  .contact .content{
     max-width:800px;
@@ -433,7 +418,7 @@ button{
 
  }
  .containerr{
- width:100%;
+    width:100%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -480,8 +465,8 @@ button{
 .contactForm{
     width:40%;
     padding:40px;
-    background:#693C72;
-
+    background:rgba(105, 60, 114,0.8);
+    height: max-content;
 }
 .contactForm h2{
     font-size:30px;
@@ -501,12 +486,11 @@ button{
  .contactForm .inputBox textarea{
     width:100%;
     padding: 5px 0;
-    font-size: 16px;
+    font-size: 25px;
     margin: 10px 0;
     border:none;
     border-bottom: 2px solid #333;
     outline:none;
-
     resize: none;
 
    
@@ -538,7 +522,7 @@ button{
  .contactForm .inputBox input[type=submit]{
     width:100px;
     background-color:#FACBEA;
-    color:#693C72;
+    color:rgb(105, 60, 114);
     border:2px solid #693C72;
     border-radius: 30px;
     cursor: pointer;
@@ -571,9 +555,9 @@ button{
     
  }
 #footer{
-    margin-top:0px;
-    padding: 90px;
-   
+    height: 100%;
+    margin-top: 0px;
+    padding: 30px 60px 0px 60px;
     background-color:#693C72;
     color:rgb(206, 197, 186);
 
@@ -641,7 +625,7 @@ header h1 {
     font-size: 2em;
 }
 
-nav ul {
+/*nav ul {
     list-style: none;
     padding: 0;
 }
@@ -649,7 +633,7 @@ nav ul {
 nav ul li {
     display: inline;
     margin-right: 20px;
-}
+}*/
 
 .product-list {
     display: flex;
