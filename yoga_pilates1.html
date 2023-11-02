@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time to get fit!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="yoga_pilates.css">
+    <style>
+        .nav-borders .nav-link.active {
+          color: #0061f2;
+          border-bottom-color: #0061f2;
+      }
+      .nav-borders .nav-link {
+          color: #69707a;
+          border-bottom-width: 0.125rem;
+          border-bottom-style: solid;
+          border-bottom-color: transparent;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 1rem;
+          margin-right: 1rem;
+      }
+  
+      .navi .body {
+              position: relative;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              height: auto;
+              margin: 0;
+            }
+          
+           .navi .menu {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding: 0;
+            }
+            .navi .line {
+              fill: none;
+              stroke: black;
+              stroke-width: 6;
+              transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .navi .line1 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .navi .line2 {
+              stroke-dasharray: 60 60;
+              stroke-width: 6;
+            }
+            .navi .line3 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .opened .line1 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            .opened .line2 {
+              stroke-dasharray: 1 60;
+              stroke-dashoffset: -30;
+              stroke-width: 6;
+            }
+            .opened .line3 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            
+                .navi .menu-container {
+                    position: relative;
+                }
+            
+                .navi .nav-links {
+                  background-color: rgb(229, 222, 222) !important;
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            
+                .navi .nav-links a {
+                    display: block;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: #333;
+                }
+            
+               .navi .menu-container.opened .nav-links {
+                    display: block;
+                   
+            }
+            
+            .navi .menu-container {
+     
+                position: fixed; /* Fixed position to keep it at the top left */
+                top: 0; /* Position at the top of the viewport */
+                left: 25px; /* Position at the left of the viewport */
+                z-index: 1000; /* Ensure it's above other content */
+                padding: 10px; /* Add some padding for spacing */
+            }
+            
+            .navi .menu {
+             
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                padding-bottom: 10px;
+            }
+            
+            /* Adjust the width and height of the SVG icon as needed */
+            .navi .menu svg {
+              width: 40px; /* Reduce the width */
+              height: auto; /* Allow the height to adjust proportionally */
+            } 
+            .dropdown-menu {
+              display: none;
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background-color: #fff;
+              border: 1px solid #ccc;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              font-family: Arial, sans-serif;
+              font-size: 16px;
+              z-index: 999; /* Ensure it's in front of the user-profile icon */
+            }
+
+            .dropdown-menu ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            .dropdown-menu li {
+              padding: 10px 20px;
+              text-align: center;
+            }
+
+    </style>
+  </head>
+  <body>
+    <section class="navi">
+      <div class="menu-container">
+          <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+              <svg width="50" height="auto" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              </svg>
+          </button>
+  
+          <!-- Navigation Links Container -->
+          <div id="navLinks" class="nav-links">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                  </li>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food"></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#"></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping"></a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Workout Plans
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping">Yoga&Pilaties</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Features
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Reviews</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                  <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                  <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                </ul>
+          </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    function toggleMenu() {
+        var menuContainer = document.querySelector('.menu-container');
+        menuContainer.classList.toggle('opened');
+    }
+
+    function toggleDropdown() {
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
+  // Close the dropdown when clicking outside of it
+  window.addEventListener('click', function (event) {
+      if (!event.target.closest('.user-profile-icon')) {
+          var dropdownMenu = document.querySelector('.dropdown-menu');
+          dropdownMenu.style.display = 'none';
+      }
+  });  
+  const uploadButton = document.getElementById("uploadButton");
+  const imagePopup = document.getElementById("imagePopup");
+  const saveButton = document.getElementById("saveButton");
+  
+  uploadButton.addEventListener("click", () => {
+      imagePopup.style.display = "block";
+  });
+
+  saveButton.addEventListener("click", () => {
+      // Implement code to save the selected image and hide the pop-up
+      imagePopup.style.display = "none";
+  });
+  
+</script>
+
+
+        <br> <br> <br> <br>
+        <div class="container-fluid">
+          <div class="row justify-content-center" >
+            <div class="col-lg-4 col-md-5 col-sm-6">
+              <h2>Yoga and Pilates</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="animated-text">
+          <span class="auto-type"></span>
+        </div>
+
+        <!--Gallery-->
+      <div class="container">
+        <div class="photogallery">
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-1.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Manipura Chakra</h3>
+                <p>It is nown as the power center and it is located at the front of the spine in the region of the solar plexus and navel. It rules our personal power, will, and autonomy, as well as our metabolism.</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-6.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Standing side-splits</h3>
+                <p>It strengthens leg and hip muscles, improve posture, balance and coordination, improve core stability as well as lumbopelvic stability, strengthens adductors</p>
+              </div>
+            </div>
+            <div class="gallery">  
+              <div class="photo">
+                <img src="images/gallery-3.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Bhujangasana</h3>
+                <p>It gives an excellent result for losing weight and increasing metabolism. This pose improves the function of the liver, kidney, pancreas and gall bladder. It cures insomnia, spine problems, indigestion and constipation naturally.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-4.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Eka Pada Rajakapotasana</h3>
+                <p>It helps with urinary disorders, releases negative feelings and undesirable energy stored in our body, provides emotional benefits like a reduction in fear, stress, and anxiety, tones muscles around the throat, helps in reducing blood pressure, provides immunity and helps in recovering from chronic diseases</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-5.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Paschimottanasana</h3>
+                <p>It covers the stretching of the whole body from our head to heels. It reduces belly fat, tones the abdominal-pelvic organs, strengthens the back muscles as well as very useful for increasing height.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-7.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Swiss Exercise Ball</h3>
+                <p>Lifting objects is a frequent cause of low back injury and muscle strain, exercises with the Swiss exercise ball can be a useful tool in teaching the proper body mechanics and posture while lifting.</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-8.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Ardha Matsyendrasana</h3>
+                <p>It not only calms your mind but also detoxifies your body and helps alleviate stress, mild depression, and anxiety. It massages your internal organs, which enables you to get rid of all the toxins from your body.</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/gallery-2.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Pilates Mermaid</h3>
+                <p>It stretches and engages our mid-lower back muscles as well as your primary breathing muscles. It also helps with hip mobility and works the abdominals to maintain the integrity of the torso.</p>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <!--gallery end-->
+
+      <div class="bgimage">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Why You Should Do Yoga and Pilates ?</h1>
+              <br><br>
+              <div class="row">
+                <div class="col-xl-8 col-lg-10 col-md-12">
+                  <p class="para">
+                    Yoga and Pilates provide several physical and mental advantages. Both practices encourage overall well-being, making them an asset to your fitness and mindfulness routines.
+                  </p>
+                  <br>
+                  <ul>
+                    <li class="benefits">Yoga promotes flexibility</li><br>
+                    <li class="benefits">Yoga reduces stress</li><br>
+                    <li class="benefits">Yoga improves your strength</li><br>
+                    <li class="benefits">Yoga helps you to breathe better</li><br>
+                    <li class="benefits">Yoga is helpful with pain relief</li><br>
+                    <li class="benefits">Yoga helps you to focus</li><br>
+                    <li class="benefits">Pilates emphasizes on core strength and posture </li><br>
+                    <li class="benefits">Yoga and pilates helps give meaning to your day! </li><br>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+      <script>
+        var typed = new Typed(".auto-type", {
+          strings: ["Inspiration For Joyful Living.", "Effective Therapy Against Stress.", "Flexibility is A Second Power."],
+          typeSpeed: 80,
+          backSpeed: 80,
+          loop: true
+          });
+      </script>
+      <br> <br>
+      <!--Levels-->
+
+      <div class="container-fluid">
+        <div class="row justify-content-center" >
+          <div class="col-lg-6 col-md-8 ">
+            <h2>Choose your level of workout </h2>
+          </div>
+        </div>
+      </div>
+      <br> <br>
+      
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Beginner
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <div class="progress-container">
+                      <div class="progress" id="progress"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="video-container">
+                  <a class="video-slider, videobox">
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga1.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga2.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga3.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga4.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga5.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </a>
+                  <button class="video-slider-btn left-side" onclick="plusDivs(-1)">&#10094;</button>
+                  <button class="video-slider-btn right-side" onclick="plusDivs(1) " id="next">&#10095;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Intermediate
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="container-fluid">
+                <div class="video-container">
+                  <a class="video-slider, videobox">
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga1.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga2.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga3.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga4.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-slide">
+                      <video controls>
+                        <source src="images/beginner_yoga5.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </a>
+                  <button class="video-slider-btn left-side" onclick="plusDivs(-1)">&#10094;</button>
+                  <button class="video-slider-btn right-side" onclick="plusDivs(1) " id="next">&#10095;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Advanced
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      
+
+      
+      <section id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="images/dumbell.png" class="footer-logo">
+              <h1>About Us:</h1>
+                <p>- Our Mission: Helping you achieve your fitness goals.<br>
+                - Meet Our Trainers: Learn about our experienced fitness experts. </p>
+    
+    
+            </div>
+            <div class="col-md-3">
+             <h1>Features</h1>
+             <p>Certified trainers</p>
+             <p>Free workout plans</p>
+             <p>Nutrional low calorie food alternatives</p>
+             <p>Testimonials</p>
+             <p>Tips </p>
+    
+            </div>
+            <div class="col-md-3">
+              <h1>Quick Contact</h1>
+              <p><i class="fa fa-phone-square"></i> 9372539168</p>
+              <p><i class="fa fa-envelope"></i> fitlife360@gmail.com</p>
+              <p><i class="fa fa-home"></i> <p>New Link Road,Mumbai,India</p>
+             </div>
+             <div class="col-md-2">
+              <h1>Follow us on</h1>
+              <p><i class="fa-brands fa-square-instagram"></i>@fitlife360</p>
+             </div>
+            </div>
+          <hr><p class="copyright">Made with &nbsp; &nbsp;<i class='fa fa-heart' style="color:red"></i>by fitlife360</p>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="yoga_pilates.js"></script>
+  </body>
+</html>

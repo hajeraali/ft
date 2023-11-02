@@ -1,53 +1,67 @@
-const progress = document.getElementById("progress");
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
-const circles = document.querySelectorAll(".circle");
+$(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
 
-let currentActive = 0;
+/* Progress bar */
+let scrollTop = window.scrollY;
+let viewportHeight = document.body.clientHeight - window.innerHeight;
+let scrollPercent = (scrollTop / viewportHeight) * 100;
+let progressBar = document.querySelector("#js-progressbar");
 
-next.addEventListener("click",()=>{
-    currentActive++;
-    if (currentActive > circles.length){
-        currentActive = circles.length;
-    }
-    circle();
+progressBar.setAttribute("value", scrollPercent);
+
+window.addEventListener("scroll", function () {
+  scrollTop = window.scrollY;
+  viewportHeight = document.body.clientHeight - window.innerHeight;
+  scrollPercent = (scrollTop / viewportHeight) * 100;
+  progressBar.setAttribute("value", scrollPercent);
 });
 
-function circle(){
-    circles.forEach((circle,idx)=>{
-        if(idx < currentActive){
-            circle.classList.add("active");
-        }
-    });
-    const actives = document.querySelectorAll(".active");
-    progress.style.width=((actives.length-3)/(circles.length-1)) *100 +"%";
-} 
+let [milliseconds, seconds ,minutes, hours]=[0,0,0,0];
+let timeRef = document.querySelector(".timer-display");
+let int = null;
 
-var slideIndex = 1;
-showDivs(slideIndex);
+document.getElementById("start-timer").addEventListener("click",()=>{
+  if(int != null){
+    clearInterval(int);
+  }
+  int = setInterval(displayTimer, 10);
+});
 
-function plusDivs(n) {  
-  showDivs(slideIndex += n);
+document.getElementById("pause-timer").addEventListener("click",()=>{
+  clearInterval(int);
+});
+
+document.getElementById("reset-timer").addEventListener("click",()=>{
+  clearInterval(int);
+  [milliseconds, seconds ,minutes, hours]=[0,0,0,0];
+  timeRef.innerHTML = "00 : 00 : 00 : 000 ";
+});
+
+function displayTimer() {
+  milliseconds +=10;
+  if(milliseconds == 1000){
+    milliseconds = 0;
+    seconds++;
+    if(seconds == 60){
+      seconds = 0;
+      minutes++;
+      if(minutes == 60){
+        minutes=0;
+        hours++;
+      }
+    }
+  }
+  let h = hours < 10 ? "0" + hours:hours;
+  let m = minutes < 10 ? "0"+ minutes : minutes ;
+  let s = seconds < 10 ? "0" + seconds : seconds;
+  let ms = milliseconds < 10
+  ? "00" + milliseconds
+  : milliseconds < 100
+  ? "0" + milliseconds
+  : milliseconds;
+
+  timeRef.innerHTML = ` ${h} : ${m} : ${s} : ${ms} `;
 }
-
-function showDivs(n) {
-  var i,
-      x = document.getElementsByClassName("video-slide"),
-      y = document.getElementsByTagName("video");
-  
-  if (n > x.length) {
-    slideIndex = 1
-  }
-  
-  if (n < 1) {
-    slideIndex = x.length
-  }
-  
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-    y[i].pause();
-  }
-  
-  x[slideIndex-1].style.display = "block";
-}
-
