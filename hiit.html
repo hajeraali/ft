@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time to get fit!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="hiit.css">
+    <style>
+        .nav-borders .nav-link.active {
+          color: #0061f2;
+          border-bottom-color: #0061f2;
+      }
+      .nav-borders .nav-link {
+          color: #69707a;
+          border-bottom-width: 0.125rem;
+          border-bottom-style: solid;
+          border-bottom-color: transparent;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 1rem;
+          margin-right: 1rem;
+      }
+  
+      .navi .body {
+              position: relative;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              height: auto;
+              margin: 0;
+            }
+          
+           .navi .menu {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              padding: 0;
+            }
+            .navi .line {
+              fill: none;
+              stroke: black;
+              stroke-width: 6;
+              transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .navi .line1 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .navi .line2 {
+              stroke-dasharray: 60 60;
+              stroke-width: 6;
+            }
+            .navi .line3 {
+              stroke-dasharray: 60 207;
+              stroke-width: 6;
+            }
+            .opened .line1 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            .opened .line2 {
+              stroke-dasharray: 1 60;
+              stroke-dashoffset: -30;
+              stroke-width: 6;
+            }
+            .opened .line3 {
+              stroke-dasharray: 90 207;
+              stroke-dashoffset: -134;
+              stroke-width: 6;
+            }
+            
+                .navi .menu-container {
+                    position: relative;
+                }
+            
+                .navi .nav-links {
+                  background-color: rgb(229, 222, 222) !important;
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            
+                .navi .nav-links a {
+                    display: block;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: #333;
+                }
+            
+               .navi .menu-container.opened .nav-links {
+                    display: block;
+                   
+            }
+            
+            .navi .menu-container {
+     
+                position: fixed; /* Fixed position to keep it at the top left */
+                top: 0; /* Position at the top of the viewport */
+                left: 25px; /* Position at the left of the viewport */
+                z-index: 1000; /* Ensure it's above other content */
+                padding: 10px; /* Add some padding for spacing */
+            }
+            
+            .navi .menu {
+             
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                padding-bottom: 10px;
+            }
+            
+            /* Adjust the width and height of the SVG icon as needed */
+            .navi .menu svg {
+              width: 40px; /* Reduce the width */
+              height: auto; /* Allow the height to adjust proportionally */
+            } 
+            .dropdown-menu {
+              display: none;
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background-color: #fff;
+              border: 1px solid #ccc;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              font-family: Arial, sans-serif;
+              font-size: 16px;
+              z-index: 999; /* Ensure it's in front of the user-profile icon */
+            }
+
+            .dropdown-menu ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            .dropdown-menu li {
+              padding: 10px 20px;
+              text-align: center;
+            }
+
+    </style>
+  </head>
+  <body>
+    <section class="navi">
+      <div class="menu-container">
+          <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+              <svg width="50" height="auto" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              </svg>
+          </button>
+  
+          <!-- Navigation Links Container -->
+          <div id="navLinks" class="nav-links">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                  </li>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food"></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#"></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping"></a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Workout Plans
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping">Yoga&Pilaties</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Features
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Reviews</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                  <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                  <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                </ul>
+          </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    function toggleMenu() {
+        var menuContainer = document.querySelector('.menu-container');
+        menuContainer.classList.toggle('opened');
+    }
+
+    function toggleDropdown() {
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
+  // Close the dropdown when clicking outside of it
+  window.addEventListener('click', function (event) {
+      if (!event.target.closest('.user-profile-icon')) {
+          var dropdownMenu = document.querySelector('.dropdown-menu');
+          dropdownMenu.style.display = 'none';
+      }
+  });  
+  const uploadButton = document.getElementById("uploadButton");
+  const imagePopup = document.getElementById("imagePopup");
+  const saveButton = document.getElementById("saveButton");
+  
+  uploadButton.addEventListener("click", () => {
+      imagePopup.style.display = "block";
+  });
+
+  saveButton.addEventListener("click", () => {
+      // Implement code to save the selected image and hide the pop-up
+      imagePopup.style.display = "none";
+  });
+  
+</script>
+
+
+        <br> <br> <br> <br>
+        <div class="container-fluid">
+          <div class="row justify-content-center" >
+            <div class="col-lg-4 col-md-5 col-sm-6">
+              <h2>High-intensity interval training (HIIT)</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="animated-text">
+          <span class="auto-type"></span>
+        </div>
+
+        <!--Gallery-->
+      <div class="container">
+        <div class="photogallery">
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit1.jpeg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Side Lunges</h3>
+                <p>Side lunges, also known as lateral lunges, are a type of bodyweight exercise. They are a very important lower body movement that works multiple muscle groups. It helps strengthen your lower body, increase core strength, muscle tissue,etc</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit10.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Squats</h3>
+                <p>Squat exercises aren't just for athletes. You can do them as part of your regular exercise routine. They strengthen your lower body, targeting your glutes and quadriceps.They also lower your chances of injuring your knees and ankles. As you exercise, the movement strengthens your tendons, bones, and ligaments around the leg muscles. It takes some of the weight off your knees and ankles.</p>
+              </div>
+            </div>
+            <div class="gallery">  
+              <div class="photo">
+                <img src="images/hiit3.jpeg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Push ups</h3>
+                <p>Push-up exercise is a close chain kinetic exercise which improves the joint proprioception, joint stability and muscle co-activation around the shoulder joint. Push-ups activate a large number of muscles together, increasing the demand on the heart muscle and the respiratory rate.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit4.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Tricep dip</h3>
+                <p>The triceps dip exercise is a great bodyweight exercise that builds arm and shoulder strength. This simple exercise can be done almost anywhere and has many variations to match your fitness level.</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit5.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Alternating high knee</h3>
+                <p>The high knees exercise improves cardiovascular endurance, burns calories, boosts lower-body endurance and strength, improves coordination, and strengthens the abdominal muscles.</p>
+              </div>
+            </div>
+            <div class="gallery">
+                <div class="photo">
+                  <img src="images/hiit9.jpg" alt="">
+                </div>
+                <div class="caption">
+                  <h3>Russian Twist</h3>
+                  <p>TWhat will happen if I do Russian twists everyday?
+                    10 Amazing Benefits Of Seated Russian Twist
+                    This exercise targets the obliques, which are the muscles running from the ribs to the pelvic area. These help you burn the fat called muffin top or side belly fat.</p>
+                </div>
+              </div>
+          </div>
+          <div class="column">
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit6.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Sit ups</h3>
+                <p>In addition to looking great, doing sit-ups daily will strengthen your muscles, improve your posture, core and upper body strength, burn calories and more. .</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit7.jpeg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Jumping jack</h3>
+                <p>Jumping jacks offer full-body exercise, working muscles in your arms, legs, and core. They can strengthen your muscles, improve coordination, and boost your fitness.</p>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="photo">
+                <img src="images/hiit8.jpg" alt="">
+              </div>
+              <div class="caption">
+                <h3>Burpee</h3>
+                <p>The burpee is a simple yet effective tool for a total body workout. It’s a great way to work most of your body’s major muscle groups to efficiently strengthen your upper and lower body. Even extremities like your hands get a workout!</p>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <!--gallery end-->
+
+      <div class="bgimage">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Introduction to High Intensity Interval Training</h1>
+              <br><br>
+              <div class="row">
+                <div class="col-xl-8 col-lg-10 col-md-12">
+                  <p class="para">
+                    HIIT is a type of interval training exercise. It incorporates several rounds that alternate between several minutes of high intensity movements to significantly increase the heart rate to at least 80% of one’s maximum heart rate, followed by short periods of lower intensity movements. 
+                  </p>
+                  <br>
+                  <ul>
+                    <li class="benefits">Improves cardiovascular health</li><br>
+                    <li class="benefits">Burns more calories in less time</li><br>
+                    <li class="benefits">Boosts metabolism</li><br>
+                    <li class="benefits">Increases fat loss</li><br>
+                    <li class="benefits">Preserves lean muscle mass</li><br>
+                    <li class="benefits">Enhances insulin sensitivity</li><br>
+                    <li class="benefits">Increases endurance </li><br>
+                    <li class="benefits">Requires minimal or no equipment </li><br>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+      <script>
+        var typed = new Typed(".auto-type", {
+          strings: ["Make every interval count.", "HIIT it and quit it.", "Push harder, go further, feel stronger."],
+          typeSpeed: 80,
+          backSpeed: 80,
+          loop: true
+          });
+      </script>
+      <br> <br>
+
+      <div class="container-fluid" style="background-image:url(img/levelbg.jpg); background-attachment: fixed; background-position: center;
+      background-size: cover; height: 600px;">
+        <div class="row justify-content-center" >
+          <div class="col-lg-6 col-md-8 ">
+            <h2 style="padding-top: 10%;">Choose your level of workout </h2>
+          </div>
+        </div>
+            <br> <br>
+        <div class="row justify-content-center">
+            <figure class="snip1428"><img src="images/hiit-beginner.jpg" />
+              <figcaption>
+                <h3 style="color:rgb(227, 223, 222);">Beginner</h3>
+                <p></p>
+              </figcaption>
+              <a target="_blank" href="hiit-beginner.html"></a>
+            </figure>
+            <figure class="snip1428"><img src="images/hiit-intermediate.jpg" />
+              <figcaption>
+                <h3 style="color:rgb(227, 223, 222);">Intermediate</h3>
+                <p></p>
+              </figcaption>
+              <a target="_blank" href="intermediate.html"></a>
+            </figure>
+            <figure class="snip1428"><img src="images/hiit-advanced.jpg" />
+              <figcaption>
+                <h3 style="color:rgb(227, 223, 222);">Advanced</h3>
+                <p></p>
+              </figcaption>
+              <a target="_blank" href="advanced.html"></a>
+            </figure>
+        </div>
+      </div>
+
+
+      <!--Levels-->
+
+  
+      
+      <section id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="images/dumbell.png" class="footer-logo">
+              <h1>About Us:</h1>
+                <p>- Our Mission: Helping you achieve your fitness goals.<br>
+                - Meet Our Trainers: Learn about our experienced fitness experts. </p>
+    
+    
+            </div>
+            <div class="col-md-3">
+             <h1>Features</h1>
+             <p>Certified trainers</p>
+             <p>Free workout plans</p>
+             <p>Nutrional low calorie food alternatives</p>
+             <p>Testimonials</p>
+             <p>Tips </p>
+    
+            </div>
+            <div class="col-md-3">
+              <h1>Quick Contact</h1>
+              <p><i class="fa fa-phone-square"></i> 9372539168</p>
+              <p><i class="fa fa-envelope"></i> fitlife360@gmail.com</p>
+              <p><i class="fa fa-home"></i> <p>New Link Road,Mumbai,India</p>
+             </div>
+             <div class="col-md-2">
+              <h1>Follow us on</h1>
+              <p><i class="fa-brands fa-square-instagram"></i>@fitlife360</p>
+             </div>
+            </div>
+          <hr><p class="copyright">Made with &nbsp; &nbsp;<i class='fa fa-heart' style="color:red"></i>by fitlife360</p>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="yoga_pilates.js"></script>
+  </body>
+</html>
