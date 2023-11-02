@@ -4,6 +4,11 @@
     margin:0;
 
 }
+#back{
+    background-image: url('images/brownbg2.jpg');
+    background-size: contain;
+    background-position: center;
+}
 
 #header{
    
@@ -43,7 +48,6 @@
     text-align:right;
 
 }
-
 .bmi{
     padding:50px 100px;
     margin-top:-140px;

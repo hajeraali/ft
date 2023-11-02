@@ -27,7 +27,7 @@ $mysqli = require __DIR__ . "/db.php";
 
 
 // Check if the email already exists in the database
-$check_sql = "SELECT COUNT(*) FROM user WHERE email = ?";
+$check_sql = "SELECT COUNT(*) FROM users WHERE email = ?";
 $check_stmt = $mysqli->prepare($check_sql);
 $check_stmt->bind_param("s", $_POST["email"]);
 $check_stmt->execute();
@@ -39,7 +39,7 @@ if ($email_count > 0) {
     die("Email is already taken");
 }
 
-$sql = "INSERT INTO user (username, email, password_hash) 
+$sql = "INSERT INTO users (username, email, password_hash) 
         VALUES (?,?,?)";
 
 $stmt = $mysqli->stmt_init();
@@ -60,5 +60,4 @@ else {
     die($mysqli->error . " " . $mysqli->errno);
 }
 
-?>
 

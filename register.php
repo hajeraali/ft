@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     
     $mysqli = require __DIR__ . "/db.php";
 
-     $sql = sprintf("SELECT * FROM user 
+     $sql = sprintf("SELECT * FROM users 
             WHERE email = '%s'",
             $mysqli->real_escape_string($_POST["email"]));
 
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
             $_SESSION["user_id"] = $user["id"];
 
-            header("Location: userprofile.php");
+            header("Location: dashboard.php");
             exit;
 
 
