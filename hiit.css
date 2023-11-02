@@ -286,13 +286,13 @@
     background-color: transparent;
   }
   .progress progress::-moz-progress-bar {
-    background-color: rgba(126, 19, 103, 0.443);
+    background-color: rgba(6, 6, 58, 0.737);
   }
   .progress progress::-webkit-progress-bar {
     background-color: rgba(168, 166, 166, 0.445);
   }
   .progress progress::-webkit-progress-value {
-    background-color: rgba(126, 19, 103, 0.521);
+    background-color: rgba(23, 19, 126, 0.521);
   }
   
   video{
@@ -328,7 +328,7 @@
   .buttonss button{
     width: 120px;
     height: 45px;
-    background-color: rgba(105, 5, 110, 0.749);
+    background-color: rgba(31, 5, 110, 0.749);
     color: rgb(255, 255, 255);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
@@ -359,7 +359,7 @@
   
   h5{
     font-family:cursive;
-    color: rgb(125, 1, 114);
+    color: rgb(32, 1, 125);
     padding: 50px 0 20px 0;
     font-weight: bold;
     letter-spacing: 3px;
@@ -374,7 +374,7 @@
   .popup-link a{
     width: 120px;
     height: 45px;
-    background-color: rgba(105, 5, 110, 0.749);
+    background-color: rgba(12, 5, 110, 0.749);
     color: rgb(255, 255, 255);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
