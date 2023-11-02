@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time to get fit!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="yoga_pilates.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .nav-borders .nav-link.active {
+        color: #FF748C;
+        border-bottom-color:#FF748C;
+    }
+    .nav-borders .nav-link {
+        color:#FF748C;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navi .body {
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            margin: 0;
+          }
+        
+         .navi .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            padding-bottom: 10px;
+          }
+          .navi .line {
+            fill: none;
+            stroke: black;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .navi .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .navi .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+          }
+          .navi .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+          }
+          .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          
+              .navi .menu-container {
+                  position: relative;
+                  position: fixed; /* Fixed position to keep it at the top left */
+                  top: 0; /* Position at the top of the viewport */
+                  left: 25px; /* Position at the left of the viewport */
+                  z-index: 1000; /* Ensure it's above other content */
+                  padding: 10px; /* Add some padding for spacing */
+              }
+          
+              .navi .nav-links {
+                  font-family: serif;
+                  background-color: rgb(229, 222, 222) !important;
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  border: 1px solid #ccc;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              }
+          
+              .navi .nav-links a {
+                  display: block;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  color: #333;
+              }
+          
+             .navi .menu-container.opened .nav-links {
+                  display: block;
+                 
+          }
+          /* Adjust the width and height of the SVG icon as needed */
+          .navi .menu svg {
+            width: 60px; /* Reduce the width */
+            height: auto; /* Allow the height to adjust proportionally */
+          } 
+          .dropdown-menu.show {
+            background: rgb(229, 222, 222);
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .dropdown-menu {
+          /* display: none; */
+          /* position: absolute; */
+          /* top: 100%; */
+          /* right: 0; */
+          /* background-color: #fff; */
+          /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+           /* z-index: 999; */
+          border: 1px solid #ccc;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+      }
+
+          .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #FF748C;
+          }
+          
+          .dropdown-menu li {
+            padding: 10px;
+            text-align: center;
+          }
+
+  </style>
+  </head>
+  <body style="background: url(images/bgivory.jpg);background-attachment: fixed; background-position: center;
+  background-size: cover; height:auto">
+  <section id="header">
+    <section class="navi">
+      <div class="menu-container">
+          <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+              <svg width="50" height="auto" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              </svg>
+          </button>
+  
+          <!-- Navigation Links Container -->
+          <div id="navLinks" class="nav-links">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="staymotivated.html">Motivation</a>
+                </li>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping"></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                </li>
+               
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Workout Plans
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="yoga_pilates.html">Yoga&Pilaties</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Features
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#contactus">Reviews</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                  </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                  <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                  <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                </ul>
+          </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    function toggleMenu() {
+        var menuContainer = document.querySelector('.menu-container');
+        menuContainer.classList.toggle('opened');
+    }
+
+    function toggleDropdown() {
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
+</script>
+    <div class="progress">
+      <progress id="js-progressbar" value="" max="100"></progress>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6"></div>
+          <div class="col-lg-4">
+          <div class="buttonss">
+            <button id="start-timer">Start</button>
+            <button id="pause-timer">Pause</button>
+            <button id="reset-timer">Reset</button>
+          </div>
+          </div>
+          <div class="col-lg-2">  
+            <div class="timer-display">
+                00 : 00 : 00 : 000
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>  
+    <div class="container">
+
+      <div class="row ">
+        <div class="col-md-6 ">
+          <video controls src="video/wl-b-kick.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>Front kick</h5>
+          <p align="justify">Front kicks are a fundamental martial arts and self-defense technique used to strike an opponent with the ball of the foot while maintaining a stable and balanced stance. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Start in a balanced fighting stance with feet shoulder-width apart.</li>
+            <li class="steps">Chamber the knee of your kicking leg, pointing your toes down.</li>
+            <li class="steps">Extend your kicking leg forward, striking with the ball of your foot.</li>
+            <li class="steps">Maintain balance and engage your core during the kick.</li>
+            <li class="steps">Retract your kicking leg to the chambering position.</li>
+            <li class="steps">Return to your starting stance with your guard up.</li>
+ </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Dumbbells to floor sumo squats</h5>
+          <p align="justify">Dumbbells to floor sumo squats are a dynamic lower body exercise that combines the wide stance of a sumo squat with the added challenge of lowering dumbbells to the floor, providing an effective way to strengthen the legs, glutes, and core while improving flexibility. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Start with your feet wider than shoulder-width apart, toes turned out at an angle.</li>
+            <li class="steps">Hold a dumbbell with both hands in front of your body, arms extended.</li>
+            <li class="steps">Lower the dumbbell to the floor by bending your knees and pushing your hips back.</li>
+            <li class="steps">Go as low as your flexibility allows or until the dumbbell touches the floor.</li>
+            <li class="steps">Push through your heels to stand back up, straightening your knees and hips.</li>
+            <li class="steps">Repeat for the desired number of repetitions, keeping your back straight and chest up.</li>
+             </ol>
+        </div>
+        <div class="col-md-6">
+          <video controls src="video/wl-b-dumbell.mp4"></video>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <video controls src="video/wl-b-onearm.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>One arm thruts(Right)</h5>
+          <p align="justify">One-arm thrusts are a challenging exercise that combines elements of a push-up and a plank, where you support your body weight on one arm while extending the opposite arm and leg for an intense full-body workout. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Stand with your feet shoulder-width apart, knees slightly bent, and your non-kicking arm raised for balance.</li>
+            <li class="steps">Hold a weight or object in your opposite hand, keeping it close to your chest.</li>
+            <li class="steps">Push the weight away from your chest by extending your arm forward, keeping it parallel to the ground.</li>
+            <li class="steps">Focus on using your chest and triceps muscles to perform the thrust.</li>
+            <li class="steps">Return the weight to your chest and repeat the exercise for your desired number of repetitions.</li>
+            <li class="steps">Switch to the other arm to maintain balance and ensure both sides receive equal attention.</li>
+            </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5>One arm thrusts(Left)</h5>
+          <p align="justify">Do the above exercise again but with your other hand. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Stand with your feet shoulder-width apart, knees slightly bent, and your non-kicking arm raised for balance.</li>
+            <li class="steps">Hold a weight or object in your opposite hand, keeping it close to your chest.</li>
+            <li class="steps">Push the weight away from your chest by extending your arm forward, keeping it parallel to the ground.</li>
+            <li class="steps">Focus on using your chest and triceps muscles to perform the thrust.</li>
+            <li class="steps">Return the weight to your chest and repeat the exercise for your desired number of repetitions.</li>
+            <li class="steps">Switch to the other arm to maintain balance and ensure both sides receive equal attention.</li>
+             </ol>
+        </div>
+        <div class="col-md-6">
+          <video controls src="video/wl-b-otherarm.mp4"></video>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <video controls src="video/wl-b-goblet.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>Goblet Squat + Pulse</h5>
+          <p align="justify">The goblet squat with a pulse is a dynamic lower-body exercise that combines the standard goblet squat with a controlled, small pulsing movement at the lowest point of the squat, helping to strengthen and tone the legs and glutes Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Hold a dumbbell or kettlebell close to your chest with both hands, close to your body.</li>
+            <li class="steps">Stand with your feet shoulder-width apart, toes pointing slightly outward.</li>
+            <li class="steps">Initiate the squat by pushing your hips back and bending your knees, lowering your body toward the ground.</li>
+            <li class="steps">Descend until your thighs are at least parallel to the ground or as far as your flexibility and strength allow.</li>
+            <li class="steps">Hold the bottom position and perform a controlled, small pulsing motion by moving up and down slightly within this range.</li>
+            <li class="steps">Maintain a straight back and keep the weight close to your chest during the pulse.</li>
+            <li class="steps">Rise back up to the starting position by straightening your legs and pushing through your heels.</li>
+            <li class="steps">Repeat the goblet squat with pulses for the desired number of repetitions.</li>
+             </ol>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class="p-4">
+        <div class="popup-link">
+          <a href="#popup1" id="pause-timer">Finish</a>
+        </div>
+        <div id="popup1" class="popup-container">
+          <div class="popup-content">
+            <a href="#" class="close">&times;</a>
+            <img src="images/yay.gif" style="padding-left:25%;">
+            <h3>Yayyy.....!!!</h3>
+            <p>You have completed this workout <img src="images/balloon.png" width="7%" height="7%"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="yoga_pilates.js"></script>
+  </body>
+  
+</html>        
