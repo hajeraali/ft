@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('images/bgre4.jpg') no-repeat right center fixed;
+    background: url('images/pexels-lukas-1410140\ -\ Copy.jpg') no-repeat right center fixed;
     background-size: cover;
 }
 
@@ -38,11 +38,13 @@ ul {
     background: #5d535335;
     border-radius: 50px;
     transition: background 0.3s;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .tip:hover {
-    background: linear-gradient(135deg, #d69a9a90, #3a4d87c5);
-    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, #5f8d5e90, rgba(207, 211, 178, 0.773));
+    color: rgb(32, 86, 32);
 }
 
 h2 {
@@ -52,19 +54,20 @@ h2 {
     text-transform: uppercase;
     padding-bottom: 10px;
     border-bottom: 2px solid #333;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
 
 h5 {
     text-align: center; /* Center align text */
-    font-family: "Arial", sans-serif; /* Choose a professional font-family */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Choose a professional font-family */
     font-size: 14px; /* Adjust the font size as needed */
-    color: #151414; /* Set text color to a professional color */
+    color: black; /* Set text color to a professional color */
     margin: 0; /* Remove any default margin */
     padding: 10px 0; /* Add padding for spacing */
     margin: 20px;
     padding: 30px;
-    background: #d69a9a5c;
+    background: #051a0b77;
     border-radius: 50px;
 }
 

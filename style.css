@@ -47,7 +47,7 @@
 .bmi{
     padding:50px 100px;
     margin-top:-140px;
-    background-color: rgba(250, 203, 234,0.8);
+    background-color: rgb(250, 203, 234);
     box-shadow: 0 0 20px 7px rgba(0,0,0,0.2);
 }
  .calculate{
