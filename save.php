@@ -21,7 +21,6 @@ else {
     $database = "sem5";
     $username = "root";
     $password = " ";
-
     // Create connection
     $conn = mysqli_connect($host, $username, $password, $database);
 
@@ -29,8 +28,8 @@ else {
         die("Connection error: " . mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO user_profile(fname, lname, gender, locat, phone, dob, age, bmi, height, weight) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+    $sql = "INSERT INTO users_profile(fname, lname, gender, locat, phone, dob, age, bmi, height, weight) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = mysqli_stmt_init($conn);
     
