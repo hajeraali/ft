@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time to get fit!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="yoga_pilates.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .nav-borders .nav-link.active {
+        color: #FF748C;
+        border-bottom-color:#FF748C;
+    }
+    .nav-borders .nav-link {
+        color:#FF748C;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navi .body {
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            margin: 0;
+          }
+        
+         .navi .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            padding-bottom: 10px;
+          }
+          .navi .line {
+            fill: none;
+            stroke: black;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .navi .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .navi .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+          }
+          .navi .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+          }
+          .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+          }
+          .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+          }
+          
+              .navi .menu-container {
+                  position: relative;
+                  position: fixed; /* Fixed position to keep it at the top left */
+                  top: 0; /* Position at the top of the viewport */
+                  left: 25px; /* Position at the left of the viewport */
+                  z-index: 1000; /* Ensure it's above other content */
+                  padding: 10px; /* Add some padding for spacing */
+              }
+          
+              .navi .nav-links {
+                  font-family: serif;
+                  background-color: rgb(229, 222, 222) !important;
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  border: 1px solid #ccc;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              }
+          
+              .navi .nav-links a {
+                  display: block;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  color: #333;
+              }
+          
+             .navi .menu-container.opened .nav-links {
+                  display: block;
+                 
+          }
+          /* Adjust the width and height of the SVG icon as needed */
+          .navi .menu svg {
+            width: 60px; /* Reduce the width */
+            height: auto; /* Allow the height to adjust proportionally */
+          } 
+          .dropdown-menu.show {
+            background: rgb(229, 222, 222);
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .dropdown-menu {
+          /* display: none; */
+          /* position: absolute; */
+          /* top: 100%; */
+          /* right: 0; */
+          /* background-color: #fff; */
+          /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+           /* z-index: 999; */
+          border: 1px solid #ccc;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+      }
+
+          .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #FF748C;
+          }
+          
+          .dropdown-menu li {
+            padding: 10px;
+            text-align: center;
+          }
+
+  </style>
+  </head>
+  <body style="background: url(images/beginbg.jpg);background-attachment: fixed; background-position: center;
+  background-size: cover; height:auto">
+  <section id="header">
+    <section class="navi">
+      <div class="menu-container">
+          <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
+              <svg width="50" height="auto" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              </svg>
+          </button>
+  
+          <!-- Navigation Links Container -->
+          <div id="navLinks" class="nav-links">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="staymotivated.html">Motivation</a>
+                </li>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping"></a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#bmi">BMI</a>
+                </li>
+               
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Workout Plans
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">HIIT</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Weight-Lift</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="yoga_pilates.html">Yoga&Pilaties</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Features
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#food">Nutrition</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#contactus">Reviews</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#shopping">Online store</a></li>
+                  </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Contact us</a></li>
+                  <li><a class="nav-link active" href="register.php">Register/ Login</a></li>
+                  <li><a class="nav-link active" href="userprofile.php">Dashboard</a></li>
+                </ul>
+          </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    function toggleMenu() {
+        var menuContainer = document.querySelector('.menu-container');
+        menuContainer.classList.toggle('opened');
+    }
+
+    function toggleDropdown() {
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
+</script>
+    <div class="progress">
+      <progress id="js-progressbar" value="" max="100"></progress>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6"></div>
+          <div class="col-lg-4">
+          <div class="buttonss">
+            <button id="start-timer">Start</button>
+            <button id="pause-timer">Pause</button>
+            <button id="reset-timer">Reset</button>
+          </div>
+          </div>
+          <div class="col-lg-2">  
+            <div class="timer-display">
+                00 : 00 : 00 : 000
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>  
+    <div class="container">
+
+      <div class="row ">
+        <div class="col-md-6 ">
+          <video controls src="images/beginner_yoga1.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>Tree Pose</h5>
+          <p align="justify">The Tree Pose, or "Vrikshasana" in yoga, is a balancing pose that can help improve your balance, concentration, and posture. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Stand in the Mountain Pose (Tadasana) with your feet hip-width apart and arms at your sides. Take a few deep breaths to center yourself.</li>
+            <li class="steps">Shift your weight to your right foot.</li>
+            <li class="steps">Bring your left foot to the inside of your right thigh or calf, avoiding the knee joint.</li>
+            <li class="steps">Keep your hands in prayer position or overhead and engage your core, keep hips level, and maintain a tall spine.</li>
+            <li class="steps">Focus on your breath and a fixed point (a spot on the floor or wall, to help with balance and concentration)</li>
+            <li class="steps">Hold for 30 seconds to a minute.</li>
+            <li class="steps">Lower your foot and return to Mountain Pose and repeat on the other side.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Downward Facing Dog</h5>
+          <p align="justify">Downward Facing Dog is an excellent pose for stretching the entire body and building strength. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Begin in a tabletop position on your hands and knees. Your hands should be directly under your shoulders, and your knees should be under your hips.</li>
+            <li class="steps">Lift your hips up, straightening your legs and forming an inverted "V" shape.</li>
+            <li class="steps">Spread your fingers wide, engage your core, and press heels toward the floor.</li>
+            <li class="steps">Keep your head between your arms and breathe deeply.</li>
+            <li class="steps">Hold for 30 seconds to a minute, then bend your knees and return to tabletop.</li>
+            <li class="steps">Focus on creating a sense of length and space in your spine, rather than forcing your heels down.</li>
+          </ol>
+        </div>
+        <div class="col-md-6">
+          <video controls src="images/beginner_yoga2.mp4"></video>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <video controls src="images/beginner_yoga3.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>Reverse Warrior</h5>
+          <p align="justify">Reverse Warrior, also known as Viparita Virabhadrasana, is a yoga pose that combines a deep side stretch with a gentle backbend. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Start in a standing position (Tadasana) at the top of your mat.</li>
+            <li class="steps">Take a step back with your right foot, toes angled outward.</li>
+            <li class="steps">Extend your arms out at shoulder height, left knee bent over the left ankle.</li>
+            <li class="steps">Reach your left hand down your left leg and extend your right arm overhead.</li>
+            <li class="steps">Gaze up at your right hand and gently arch your upper back.</li>
+            <li class="steps">Hold for 15-30 seconds, then return to a standing position.</li>
+            <li class="steps">Switch sides and repeat the pose.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5>The Roll Up</h5>
+          <p align="justify">The Roll Up is an effective Pilates exercise for strengthening the core, improving flexibility, and promoting overall spinal mobility. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Start lying on your back with legs extended and arms overhead.</li>
+            <li class="steps">Inhale, engage your core, and exhale as you roll up, reaching for your toes.</li>
+            <li class="steps">Inhale at the top, sitting tall and folding forward.</li>
+            <li class="steps">Exhale as you roll back down one vertebra at a time, keeping legs straight.</li>
+            <li class="steps">Repeat 6-8 times, focusing on control and core engagement</li>
+          </ol>
+        </div>
+        <div class="col-md-6">
+          <video controls src="images/beginner_yoga4.mp4"></video>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <video controls src="images/beginner_yoga5.mp4"></video>
+        </div>
+        <div class="col-md-6">
+          <h5>The Roll Up</h5>
+          <p align="justify">The Roll Up is an effective Pilates exercise for strengthening the core, improving flexibility, and promoting overall spinal mobility. Refer the video and follow these steps:</p>
+          <ol align="justify">
+            <li class="steps">Start lying on your back with legs extended and arms overhead.</li>
+            <li class="steps">Inhale, engage your core, and exhale as you roll up, reaching for your toes.</li>
+            <li class="steps">Inhale at the top, sitting tall and folding forward.</li>
+            <li class="steps">Exhale as you roll back down one vertebra at a time, keeping legs straight.</li>
+            <li class="steps">Repeat 6-8 times, focusing on control and core engagement</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class="p-4">
+        <div class="popup-link">
+          <a href="#popup1" id="pause-timer">Finish</a>
+        </div>
+        <div id="popup1" class="popup-container">
+          <div class="popup-content">
+            <a href="#" class="close">&times;</a>
+            <img src="images/yay.gif" style="padding-left:25%;">
+            <h3>Yayyy.....!!!</h3>
+            <p>You have completed this workout <img src="images/balloon.png" width="7%" height="7%"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="yoga_pilates.js"></script>
+  </body>
+  
+</html>        
