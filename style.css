@@ -640,10 +640,11 @@ nav ul li {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
+    background-image: url(images/bg10.jpg);
 }
 
 .product {
-    background-color:#B0A4A4;
+    background-color:rgba(178, 168, 180, 0.447);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 50px;
     padding: 20px;
