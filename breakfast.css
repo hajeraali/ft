@@ -138,7 +138,7 @@ body {
 }
 
 header {
-    background-color: #e19b9f;
+    background-color: #e19b9e9e;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -146,10 +146,16 @@ header {
 
 h1 {
     font-size: 28px;
-}
+    color:#494343;
+    font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;}
+    
 
 h2 {
     font-size: 22px;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
 }
 .recipe {
     flex: 1;
@@ -173,11 +179,42 @@ h2 {
     padding: 20px;
 }
 
-.ingredients h2, .instructions h2 {
+.ingredients h2{
     font-size: 20px;
     margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color:#333;
+    font-weight: 700;
+    
 }
+.instructions h2{
+  font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #494343;
+    font-weight: 700;
 
+}
+.ingredients h3{
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  color:white;
+  font-weight: 600;
+
+
+
+}
+.instructions h3{
+  
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  color:#494343;
+  font-weight: 600;
+ 
+ 
+}
 .ingredients-container {
     display: flex;
   }
