@@ -8,6 +8,7 @@
    <!--- <link rel="stylesheet" href="css/animate.css">
           <link href="css/custom.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -301,16 +302,22 @@
           var bmiStatus;
           if (bmi < 18.5) {
             bmiStatus = 'Underweight';
+            bmiRec='Yoga';
           } else if (bmi < 25) {
             bmiStatus = 'Normal';
+            bmiRec='Weight lifting';
+
           } else if (bmi < 30) {
             bmiStatus = 'Overweight';
           } else {
             bmiStatus = 'Obese';
+            bmiRec='HIIT';
           }
-          result.innerHTML = `<div class=${bmiStatus}>Your BMI is ${bmi.toFixed(2)} and you are ${bmiStatus}.</div>`;
+          result.innerHTML = `<div class=${bmiStatus}>Your BMI is ${bmi.toFixed(2)} and you are ${bmiStatus}, so we suggest you follow our ${bmiRec} plan.</div>`;
         }
+        
       </script> 
+     
 
 
 
@@ -515,7 +522,7 @@
       <div class="col-md-6">
         <div class="feature-box">
           <div class="feature-left"></div>
-          <i class="fa fa-trophy"></i>
+          <i class="fa-solid fa-trophy"></i>></i>
           <div class="feature-right"></div>
           <h4>Tips to maintain weight </h4>
           <p>Once you have reached your goal its necessary to maintain your success. So here are some tips to help you do so.</p>
@@ -589,26 +596,30 @@
         </div>
       </div>
       <div class="contactForm" data-aos="zoom-in-up">
-        <form>
+        <form action="https://getform.io/f/b63d7191-1523-4a9c-b763-d4b9f55f0d41" method="POST">
           <h2>Send message</h2>
           <div class="inputBox">
-            <input type="text" name="" required="required">
+            <input type="text" id="name" name="Full Name" required="required">
             <span>Full name</span>
           </div>
           <div class="inputBox">
-            <input type="text" name="" required="required">
+            <input type="text" name="E-address" required="required">
             <span>Email</span>
             <div class="inputBox">
-              <textarea required="required"></textarea>
-              <span>Type your message...</span>
+              <input type="textarea" name="message" required="required">
+              <span>Type your message here</span>
             </div>
             <div class="inputBox">
               <input type="submit" name="" value="Send">
              
-            </div>
-          </div>
 
+             
+            </div>
+            
+          </div>
+         
         </form>
+        
 
       </div>
     </div>

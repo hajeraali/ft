@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('images/sm1.jpg') no-repeat right center fixed;
+    background: url('images/pexels-ivan-mudruk-11433185.jpg') no-repeat right center fixed;
     background-size: cover;
 }
 
@@ -28,19 +28,20 @@ ul {
     width: calc(30% - 20px); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    background: #5d535335;
+    background: #170e1f98;
     border-radius: 15px;
     padding: 20px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .tip p {
     font-size: 16px;
-    color: #333;
+    color: #cab5df;
 }
 
 .tip:hover {
-    background: linear-gradient(135deg, #d69a9a90, #8bb68d8c);
+    background: linear-gradient(135deg, rgba(60, 34, 66, 0.565), #b68bac8c);
     color: rgb(255, 255, 255);
     transform: scale(1.05);
 }
@@ -52,19 +53,20 @@ h2 {
     text-transform: uppercase;
     padding-bottom: 10px;
     border-bottom: 2px solid #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
 
 h5 {
     text-align: center; /* Center align text */
-    font-family: "Arial", sans-serif; /* Choose a professional font-family */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Choose a professional font-family */
     font-size: 14px; /* Adjust the font size as needed */
     color: #151414; /* Set text color to a professional color */
     margin: 0; /* Remove any default margin */
     padding: 10px 0; /* Add padding for spacing */
     margin: 20px;
     padding: 30px;
-    background: #ce746f4e;
+    background: #3925464e;
     border-radius: 50px;
 }
 

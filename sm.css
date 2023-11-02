@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('images/bgre4.jpg') no-repeat right center fixed;
+    background: url('images/pawel-czerwinski-ZlHvmQ0igW4-unsplash.jpg') no-repeat right center fixed;
     background-size: cover;
 }
 
@@ -64,7 +64,7 @@ h5 {
     padding: 10px 0; /* Add padding for spacing */
     margin: 20px;
     padding: 30px;
-    background: #d69a9a5c;
+    background: #3d2d455c;
     border-radius: 50px;
 }
 
