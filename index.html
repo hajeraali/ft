@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time to get fit!</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/animate.css">
-   
-    <link href="css/custom.css" rel="stylesheet">
+   <!--- <link rel="stylesheet" href="css/animate.css">
+          <link href="css/custom.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,14 +16,15 @@
    <link rel="stylesheet" herf=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-    <!-- Add custom CSS to change the navbar color --><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Add custom CSS to change the navbar color <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+ 
     <style>
       .nav-borders .nav-link.active {
-        color: #0061f2;
-        border-bottom-color: #0061f2;
+        color: #FF748C;
+        border-bottom-color:#FF748C;
     }
     .nav-borders .nav-link {
-        color: #69707a;
+        color:#FF748C;
         border-bottom-width: 0.125rem;
         border-bottom-style: solid;
         border-bottom-color: transparent;
@@ -52,6 +51,7 @@
             cursor: pointer;
             display: flex;
             padding: 0;
+            padding-bottom: 10px;
           }
           .navi .line {
             fill: none;
@@ -90,15 +90,20 @@
           
               .navi .menu-container {
                   position: relative;
+                  position: fixed; /* Fixed position to keep it at the top left */
+                  top: 0; /* Position at the top of the viewport */
+                  left: 25px; /* Position at the left of the viewport */
+                  z-index: 1000; /* Ensure it's above other content */
+                  padding: 10px; /* Add some padding for spacing */
               }
           
               .navi .nav-links {
-                background-color: rgb(229, 222, 222) !important;
+                  font-family: serif;
+                  background-color: rgb(229, 222, 222) !important;
                   display: none;
                   position: absolute;
                   top: 100%;
                   left: 0;
-                  background-color: #fff;
                   border: 1px solid #ccc;
                   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
               }
@@ -114,57 +119,45 @@
                   display: block;
                  
           }
-          
-          .navi .menu-container {
-   
-              position: fixed; /* Fixed position to keep it at the top left */
-              top: 0; /* Position at the top of the viewport */
-              left: 25px; /* Position at the left of the viewport */
-              z-index: 1000; /* Ensure it's above other content */
-              padding: 10px; /* Add some padding for spacing */
-          }
-          
-          .navi .menu {
-           
-              background-color: transparent;
-              border: none;
-              cursor: pointer;
-              display: flex;
-              padding-bottom: 10px;
-          }
-          
           /* Adjust the width and height of the SVG icon as needed */
           .navi .menu svg {
-            width: 40px; /* Reduce the width */
+            width: 60px; /* Reduce the width */
             height: auto; /* Allow the height to adjust proportionally */
           } 
-          .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            z-index: 999; /* Ensure it's in front of the user-profile icon */
-          }
+          .dropdown-menu.show {
+            background: rgb(229, 222, 222);
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .dropdown-menu {
+          /* display: none; */
+          /* position: absolute; */
+          /* top: 100%; */
+          /* right: 0; */
+          /* background-color: #fff; */
+          /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+           /* z-index: 999; */
+          border: 1px solid #ccc;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+      }
 
           .dropdown-menu ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            background-color: #FF748C;
           }
           
           .dropdown-menu li {
-            padding: 10px 20px;
+            padding: 10px;
             text-align: center;
           }
 
   </style>
 </head>
 <body>
+  <section id="back">
   <script type="text/javascript">
     const urlParams = new URLSearchParams(window.location.search);
     const isLoggedOut = urlParams.get("loggedOut");
@@ -175,8 +168,6 @@
     }
   </script>
     <section id="header">
-      
-
       <section class="navi">
         <div class="menu-container">
             <button class="menu" onclick="toggleMenu()" aria-label="Main Menu">
@@ -191,10 +182,10 @@
             <div id="navLinks" class="nav-links">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#header">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#header">Motivation</a>
+                    <a class="nav-link active" aria-current="page" href="staymotivated.html">Motivation</a>
                   </li>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#food"></a></li>
@@ -227,7 +218,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#food">Nutrition</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Reviews</a></li>
+                      <li><a class="dropdown-item" href="#contactus">Reviews</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#shopping">Online store</a></li>
                     </ul>
@@ -250,26 +241,6 @@
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     }
     
-    // Close the dropdown when clicking outside of it
-    window.addEventListener('click', function (event) {
-        if (!event.target.closest('.user-profile-icon')) {
-            var dropdownMenu = document.querySelector('.dropdown-menu');
-            dropdownMenu.style.display = 'none';
-        }
-    });  
-    const uploadButton = document.getElementById("uploadButton");
-    const imagePopup = document.getElementById("imagePopup");
-    const saveButton = document.getElementById("saveButton");
-    
-    uploadButton.addEventListener("click", () => {
-        imagePopup.style.display = "block";
-    });
-  
-    saveButton.addEventListener("click", () => {
-        // Implement code to save the selected image and hide the pop-up
-        imagePopup.style.display = "none";
-    });
-    
   </script>
   
       <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  
@@ -286,7 +257,7 @@
         <div class="container"  data-aos="slide-right">
           <div class="bmi text-center wowfadeInUp ">
             <h1 class="h-primary">CALCULATE <h1 class="h-tertiary">YOUR BMI <3</h1></h1>
-          <div class="input">
+          <div class="input" style="margin:2%">
             <label for="height"><p>Height (cm):</p></label><br>
             <input type="text" id="height" placeholder="Height in cm">
           </div>
@@ -294,7 +265,7 @@
            <label for="weight"><p>Weight (kg):</p><label>
             <input type="text" id="weight" placeholder="Weight in kg">
           </div>
-          <button type="submit" class="calculate">Check BMI</button>
+          <button type="submit" class="calculate" style="margin-top:4%;">Check BMI</button>
           <div class="result"></div>
           <div class="bmi-status">
           </div>
@@ -414,6 +385,7 @@
                 
               
                   </section>
+                </section>
       
 <section class="nutrition-container"> 
   <div id="food">
@@ -665,7 +637,7 @@
           <h1>Quick Contact</h1>
           <p><i class="fa fa-phone-square"></i> 9372539168</p>
           <p><i class="fa fa-envelope"></i> fitlife360@gmail.com</p>
-          <p><i class="fa fa-home"></i> <p>New Link Road,Mumbai,India</p>
+          <p><i class="fa fa-home"></i><p>New Link Road,Mumbai,India</p>
         
           
          </div>
